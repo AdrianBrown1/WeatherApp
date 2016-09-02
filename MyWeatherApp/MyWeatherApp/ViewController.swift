@@ -14,9 +14,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        
         WeatherDataStore.sharedDataStore.fetchWeatherData { (errorDescription) in
-            print("I am doing something")
+            
+            print("back in the VC")
+            print(WeatherDataStore.sharedDataStore.weatherArray.count)
+            print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray.count)
+            
+            
+            
         }
+
     }
 
     override func didReceiveMemoryWarning() {

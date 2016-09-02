@@ -8,8 +8,6 @@
 
 import Foundation
 
-class  Constants  {
-    
-     let key = "902d167e0e5ec3836be796545b68317e"
-    let key2 = "21161b1db326da35c6d6a5b09cc36782"
+struct Constants {
+    static let key = "902d167e0e5ec3836be796545b68317e"
 }

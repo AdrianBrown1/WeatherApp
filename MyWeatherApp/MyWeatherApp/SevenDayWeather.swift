@@ -7,17 +7,16 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class SevenDayWeather {
     
-//    var date: Int
-//    var summary: String
-//    var icon: String
-//    var humidity: String
-//    var maxTemp: Int
-//    var minTemp: Int
-//    
+    var week: [WeeklyWeather]
     
+    
+    init(week: [WeeklyWeather]) {
+        self.week = week
+    }
     
     
 }
