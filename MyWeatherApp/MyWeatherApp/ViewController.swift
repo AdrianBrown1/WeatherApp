@@ -14,7 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        var todaysWeather: [Weather] = []
+        print("I am doing something right now !!!")
         
         WeatherDataStore.sharedDataStore.fetchWeatherData { (errorDescription) in
             
@@ -22,16 +23,15 @@ class ViewController: UIViewController {
             print(WeatherDataStore.sharedDataStore.weatherArray.count)
             print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray.count)
             
-            
+            todaysWeather.append(WeatherDataStore.sharedDataStore.weatherArray[0])
+            print(WeatherDataStore.sharedDataStore.weatherArray)
             
         }
-
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
 
 
 }
