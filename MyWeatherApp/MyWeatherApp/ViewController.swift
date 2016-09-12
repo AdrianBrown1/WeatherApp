@@ -7,31 +7,48 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+
+
+class ViewController: UIViewController, CLLocationManagerDelegate {
+    
+    var locationManager: CLLocationManager!
+    var todaysWeather: [Weather] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        var todaysWeather: [Weather] = []
         print("I am doing something right now !!!")
         
-        WeatherDataStore.sharedDataStore.fetchWeatherData { (errorDescription) in
-            
-            print("back in the VC")
-            print(WeatherDataStore.sharedDataStore.weatherArray.count)
-            print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray.count)
-            
-            todaysWeather.append(WeatherDataStore.sharedDataStore.weatherArray[0])
-            print(WeatherDataStore.sharedDataStore.weatherArray)
-            
-        }
-        
-        
-    }
-
+        // setting up coreLocation
+        locationManager = CLLocationManager()
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.requestWhenInUseAuthorization()
     
+        
+
+        
+        
+        
+
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let userLocation: CLLocation = locationManager.location as CLLocation!
+        let long = userLocation.coordinate.longitude
+        let lat = userLocation.coordinate.latitude
+       
+        print(lat)
+        print(long)
+        
+        locationManager.startUpdatingLocation()
+    }
 
 
 }

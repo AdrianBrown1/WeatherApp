@@ -13,14 +13,11 @@ import SwiftyJSON.Swift
 
 class WeatherDataStore {
     
-    
-
-    
     static let sharedDataStore = WeatherDataStore()
     var weatherArray: [Weather] = []
     var WeeklyWeatherArray: [WeeklyWeather] = []
     
-    
+
     
     func fetchWeatherData(completion:(errorDescription: NSString?) -> ()) {
                 
@@ -51,5 +48,9 @@ class WeatherDataStore {
                 }
         }
     }
+    
+    
+    
+
     
 }

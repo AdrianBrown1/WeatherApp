@@ -17,6 +17,9 @@ class WeatherView: UIView {
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    var todaysWeather: [Weather] = []
+    var thisWeeksWeather: [WeeklyWeather] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -40,7 +43,54 @@ class WeatherView: UIView {
         contentView.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
         contentView.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
         contentView.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
+        
+        updateUI()
 
+    }
+    
+    func updateUI() {
+        
+        WeatherDataStore.sharedDataStore.fetchWeatherData { (errorDescription) in
+            
+            print("back in the VC but not the normal one")
+            print(WeatherDataStore.sharedDataStore.weatherArray.count)
+            print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray.count)
+            
+       
+            let backroundQueue = NSOperationQueue()
+            
+            [backroundQueue .addOperationWithBlock({ 
+               
+                self.todaysWeather.append(WeatherDataStore.sharedDataStore.weatherArray[0])
+                print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
+            
+                var weatherObjects: [WeeklyWeather] = []
+                
+                weatherObjects.appendContentsOf(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
+                
+                
+                
+                
+                
+                
+                NSOperationQueue .mainQueue() .addOperationWithBlock({
+                    
+                    
+                    
+                    
+                    
+                    
+                })
+
+            })]
+            
+            
+            
+            
+            
+        }
+
+        
     }
     
 
