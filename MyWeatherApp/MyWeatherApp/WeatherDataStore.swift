@@ -19,9 +19,9 @@ class WeatherDataStore {
     
 
     
-    func fetchWeatherData(completion:(errorDescription: NSString?) -> ()) {
+    func fetchWeatherData(lat: String, long: String, completion:(errorDescription: NSString?) -> ()) {
                 
-        Alamofire.request(.GET, "https://api.forecast.io/forecast/21161b1db326da35c6d6a5b09cc36782/37.8267,-122.423")
+        Alamofire.request(.GET, "https://api.forecast.io/forecast/21161b1db326da35c6d6a5b09cc36782/\(lat),\(long)")
             .responseJSON { response in
                 
                 if let rawJSON = response.result.value {
@@ -48,7 +48,6 @@ class WeatherDataStore {
                 }
         }
     }
-    
     
     
 

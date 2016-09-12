@@ -22,14 +22,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         print("I am doing something right now !!!")
         
-        // setting up coreLocation
-        locationManager = CLLocationManager()
-        locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-        locationManager.requestWhenInUseAuthorization()
-    
+//        // setting up coreLocation
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self;
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestAlwaysAuthorization()
+//        locationManager.startUpdatingLocation()
+//        locationManager.requestWhenInUseAuthorization()
+//    
         
 
         
@@ -38,17 +38,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let userLocation: CLLocation = locationManager.location as CLLocation!
-        let long = userLocation.coordinate.longitude
-        let lat = userLocation.coordinate.latitude
-       
-        print(lat)
-        print(long)
-        
-        locationManager.startUpdatingLocation()
-    }
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        
+//        let userLocation: CLLocation = locationManager.location as CLLocation!
+//        let long = userLocation.coordinate.longitude
+//        let lat = userLocation.coordinate.latitude
+//       
+//        print(lat)
+//        print(long)
+//        
+//        //locationManager.startUpdatingLocation()
+//    }
 
 
 }
