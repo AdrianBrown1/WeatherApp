@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import CoreLocation
 
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController {
     
-    var locationManager: CLLocationManager!
     var todaysWeather: [Weather] = []
 
 
@@ -22,34 +20,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         print("I am doing something right now !!!")
         
-//        // setting up coreLocation
-//        locationManager = CLLocationManager()
-//        locationManager.delegate = self;
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestAlwaysAuthorization()
-//        locationManager.startUpdatingLocation()
-//        locationManager.requestWhenInUseAuthorization()
-//    
-        
-
-        
-        
-        
-
     }
     
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        
-//        let userLocation: CLLocation = locationManager.location as CLLocation!
-//        let long = userLocation.coordinate.longitude
-//        let lat = userLocation.coordinate.latitude
-//       
-//        print(lat)
-//        print(long)
-//        
-//        //locationManager.startUpdatingLocation()
-//    }
-
-
 }
 

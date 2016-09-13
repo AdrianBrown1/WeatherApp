@@ -23,14 +23,21 @@ class WeatherDataStore {
                 
         Alamofire.request(.GET, "https://api.forecast.io/forecast/21161b1db326da35c6d6a5b09cc36782/\(lat),\(long)")
             .responseJSON { response in
-                
+                print("JSON Request Worked!")
                 if let rawJSON = response.result.value {
                     
                     let json = JSON(rawJSON)
                     
                     // This Weather object is Today's Weather
                     let todaysWeather = Weather.init(json: json)
-                    self.weatherArray.append(todaysWeather)
+                    
+                    if self.weatherArray.count < 1 {
+                        self.weatherArray.append(todaysWeather)
+                    }else {
+                        print(" I cant add more to this array :( ")
+                    }
+                    
+                    
 
                     // This is the WeeklyWeather objects
                     let thisWeeksWeather = json["daily"]["data"]
@@ -39,7 +46,12 @@ class WeatherDataStore {
                     for (key, value) in thisWeeksWeather {
                         //print("\(key) ----- \(value)")
                       oneDayOfTheWeek = WeeklyWeather.init(json: value)
-                      self.WeeklyWeatherArray.append(oneDayOfTheWeek)
+                        
+                        if self.WeeklyWeatherArray.count < 8 {
+                            self.WeeklyWeatherArray.append(oneDayOfTheWeek)
+                        }else {
+                            print(" I cant add more to this array either :( ")
+                        }
                     }
                     completion(errorDescription: nil)
                 }else {

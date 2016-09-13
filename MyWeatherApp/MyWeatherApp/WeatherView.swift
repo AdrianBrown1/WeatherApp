@@ -22,6 +22,8 @@ class WeatherView: UIView, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     var todaysWeather: [Weather] = []
     var thisWeeksWeather: [WeeklyWeather] = []
+    var lat: String = ""
+    var long: String = ""
     
 
     
@@ -56,49 +58,58 @@ class WeatherView: UIView, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.requestWhenInUseAuthorization()
-        //locationManager.stopUpdatingLocation()
+
         
     }
     
+
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
         
         let userLocation: CLLocation = locationManager.location as CLLocation!
         let strlat = String(format: "%.4f", userLocation.coordinate.latitude)
         let strlong = String(format: "%.4f",userLocation.coordinate.longitude)
-        //locationManager.startUpdatingLocation()
-
         
-       WeatherDataStore.sharedDataStore.fetchWeatherData(strlat, long: strlong) { (errorDescription) in
-        self.locationManager.startUpdatingLocation()
-        print("back in the VC but not the normal one")
-        print(WeatherDataStore.sharedDataStore.weatherArray[0].temperature)
-        print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray.count)
-
-        let backroundQueue = NSOperationQueue()
+        self.lat = strlat
+        self.long = strlong
         
-        [backroundQueue .addOperationWithBlock({
-            
-            self.todaysWeather.append(WeatherDataStore.sharedDataStore.weatherArray[0])
-            print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
-            
-            var weatherObjects: [WeeklyWeather] = []
-            
-            weatherObjects.appendContentsOf(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
-            
-            self.locationManager.stopUpdatingLocation()
+        updateWeather()
+        locationManager.stopUpdatingLocation()
         
-            NSOperationQueue .mainQueue() .addOperationWithBlock({
-               // update labels
-            
-            })
-            
-        })]
-        
-        }
         
     }
-    
+    func updateWeather() {
+        
+        print(self.lat)
+        print(self.long)
+        
+        WeatherDataStore.sharedDataStore.fetchWeatherData(self.lat, long: self.long) { (errorDescription) in
+            print("back in the VC but not the normal one")
+            print(WeatherDataStore.sharedDataStore.weatherArray.count)
+            print(WeatherDataStore.sharedDataStore.weatherArray[0].summary)
+            print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray.count)
+            print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray[0].summary)
+            let backroundQueue = NSOperationQueue()
+            
+            [backroundQueue .addOperationWithBlock({
+                
+                self.todaysWeather.append(WeatherDataStore.sharedDataStore.weatherArray[0])
+                print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
+                
+                var weatherObjects: [WeeklyWeather] = []
+                
+                weatherObjects.appendContentsOf(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
+                
+                
+                NSOperationQueue .mainQueue() .addOperationWithBlock({
+                    // update labels
+                    
+                })
+                
+            })]
+        }
+    }
 
 }
