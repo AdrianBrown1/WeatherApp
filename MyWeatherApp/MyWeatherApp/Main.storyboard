@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,26 +18,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Yo-Vk-2du">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="5Yo-Vk-2du">
+                                <rect key="frame" x="-20" y="190" width="600" height="180"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vC7-yE-WMg" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="-300" y="90" width="1200" height="0.0"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vC7-yE-WMg" firstAttribute="top" secondItem="5Yo-Vk-2du" secondAttribute="top" id="8zA-3W-Uht"/>
+                                    <constraint firstItem="vC7-yE-WMg" firstAttribute="width" secondItem="5Yo-Vk-2du" secondAttribute="width" multiplier="1.1" id="PeY-K1-wwv"/>
+                                    <constraint firstItem="vC7-yE-WMg" firstAttribute="height" secondItem="5Yo-Vk-2du" secondAttribute="height" id="ZAk-LZ-lO1"/>
+                                    <constraint firstItem="vC7-yE-WMg" firstAttribute="top" secondItem="5Yo-Vk-2du" secondAttribute="top" id="a18-6v-Bvd"/>
+                                    <constraint firstAttribute="trailing" secondItem="vC7-yE-WMg" secondAttribute="trailing" id="d0P-e4-wHV"/>
+                                    <constraint firstAttribute="bottom" secondItem="vC7-yE-WMg" secondAttribute="bottom" id="hpo-Ah-Bh9"/>
+                                    <constraint firstAttribute="trailing" secondItem="vC7-yE-WMg" secondAttribute="trailing" id="vdS-EW-iii"/>
+                                    <constraint firstItem="vC7-yE-WMg" firstAttribute="leading" secondItem="5Yo-Vk-2du" secondAttribute="leading" id="wTb-y5-ZhA"/>
+                                    <constraint firstItem="vC7-yE-WMg" firstAttribute="top" secondItem="5Yo-Vk-2du" secondAttribute="top" id="xsj-Ax-F1t"/>
+                                    <constraint firstItem="vC7-yE-WMg" firstAttribute="leading" secondItem="5Yo-Vk-2du" secondAttribute="leading" id="zT2-1T-UJM"/>
+                                </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vC7-yE-WMg" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
-                                <rect key="frame" x="-300" y="300" width="1200" height="0.0"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.41165223717689514" green="0.79254454374313354" blue="0.20630925893783569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="vC7-yE-WMg" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="7KO-Am-Mej"/>
-                            <constraint firstItem="vC7-yE-WMg" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" id="D9n-5b-PTU"/>
-                            <constraint firstItem="vC7-yE-WMg" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="2:1" id="VMc-2Y-OUg"/>
-                            <constraint firstItem="vC7-yE-WMg" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="kMt-Jy-FvO"/>
+                            <constraint firstItem="5Yo-Vk-2du" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="DmC-Ie-NGW"/>
+                            <constraint firstItem="5Yo-Vk-2du" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="a7r-2f-Dtx"/>
+                            <constraint firstItem="5Yo-Vk-2du" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="0.3" id="aGs-va-fnR"/>
+                            <constraint firstItem="5Yo-Vk-2du" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" multiplier="0.8" id="rSu-IB-FSa"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1h-9T-CCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="200" y="300"/>
+            <point key="canvasLocation" x="14" y="121"/>
         </scene>
     </scenes>
 </document>

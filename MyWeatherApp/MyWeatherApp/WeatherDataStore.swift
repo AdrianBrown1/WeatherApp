@@ -43,7 +43,7 @@ class WeatherDataStore {
                     let thisWeeksWeather = json["daily"]["data"]
                     var oneDayOfTheWeek: WeeklyWeather
                     
-                    for (key, value) in thisWeeksWeather {
+                    for (_, value) in thisWeeksWeather {
                         //print("\(key) ----- \(value)")
                       oneDayOfTheWeek = WeeklyWeather.init(json: value)
                         

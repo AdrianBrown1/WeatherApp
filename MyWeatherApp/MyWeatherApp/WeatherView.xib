@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sept, 3rd, 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcs-zR-JgX" userLabel="Date">
-                    <rect key="frame" x="225" y="23" width="150" height="30"/>
+                    <rect key="frame" x="150" y="23" width="300" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -37,27 +37,27 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruB-FY-UzV" userLabel="Summary">
-                    <rect key="frame" x="435" y="255" width="150" height="30"/>
+                    <rect key="frame" x="375" y="255" width="150" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTm-wY-2J2" userLabel="Humidity">
-                    <rect key="frame" x="15" y="255" width="150" height="30"/>
+                    <rect key="frame" x="75" y="255" width="150" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="fcs-zR-JgX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.25" id="0Mg-f0-lyC"/>
-                <constraint firstItem="qTm-wY-2J2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.3" id="2w6-jD-DRN"/>
+                <constraint firstItem="qTm-wY-2J2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.5" id="2w6-jD-DRN"/>
                 <constraint firstItem="hFz-ow-2Sg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3uC-46-qUg"/>
                 <constraint firstItem="fcs-zR-JgX" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="9OK-iA-PVv"/>
                 <constraint firstItem="qTm-wY-2J2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.8" id="Am1-0h-2Zd"/>
                 <constraint firstItem="hFz-ow-2Sg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="COT-6I-XvK"/>
-                <constraint firstItem="ruB-FY-UzV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.7" id="Ep5-lB-lnu"/>
+                <constraint firstItem="ruB-FY-UzV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.5" id="Ep5-lB-lnu"/>
                 <constraint firstItem="hFz-ow-2Sg" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="EuL-Y3-yta"/>
                 <constraint firstItem="xCS-Md-eki" firstAttribute="height" secondItem="hFz-ow-2Sg" secondAttribute="height" id="G2r-t5-81c"/>
                 <constraint firstItem="hFz-ow-2Sg" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.6" id="H3T-LQ-UUn"/>
@@ -67,7 +67,7 @@
                 <constraint firstItem="xCS-Md-eki" firstAttribute="centerX" secondItem="hFz-ow-2Sg" secondAttribute="centerX" id="cRJ-gv-pvS"/>
                 <constraint firstItem="ruB-FY-UzV" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="mnF-3e-ToC"/>
                 <constraint firstItem="xCS-Md-eki" firstAttribute="centerY" secondItem="hFz-ow-2Sg" secondAttribute="centerY" id="nEY-yM-N54"/>
-                <constraint firstItem="fcs-zR-JgX" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="no2-iT-bjh"/>
+                <constraint firstItem="fcs-zR-JgX" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="no2-iT-bjh"/>
                 <constraint firstItem="ruB-FY-UzV" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="ugR-DM-TG1"/>
                 <constraint firstItem="qTm-wY-2J2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="vaG-UH-V4k"/>
                 <constraint firstItem="ruB-FY-UzV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.8" id="w0o-Vx-f5d"/>
