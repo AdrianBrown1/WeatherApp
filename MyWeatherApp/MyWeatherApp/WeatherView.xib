@@ -37,7 +37,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruB-FY-UzV" userLabel="Summary">
-                    <rect key="frame" x="375" y="255" width="150" height="30"/>
+                    <rect key="frame" x="300" y="255" width="300" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                 <constraint firstItem="qTm-wY-2J2" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="QBF-cO-Uah"/>
                 <constraint firstItem="xCS-Md-eki" firstAttribute="width" secondItem="hFz-ow-2Sg" secondAttribute="width" id="bf2-h2-pv3"/>
                 <constraint firstItem="xCS-Md-eki" firstAttribute="centerX" secondItem="hFz-ow-2Sg" secondAttribute="centerX" id="cRJ-gv-pvS"/>
-                <constraint firstItem="ruB-FY-UzV" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="mnF-3e-ToC"/>
+                <constraint firstItem="ruB-FY-UzV" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="mnF-3e-ToC"/>
                 <constraint firstItem="xCS-Md-eki" firstAttribute="centerY" secondItem="hFz-ow-2Sg" secondAttribute="centerY" id="nEY-yM-N54"/>
                 <constraint firstItem="fcs-zR-JgX" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="no2-iT-bjh"/>
                 <constraint firstItem="ruB-FY-UzV" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="ugR-DM-TG1"/>

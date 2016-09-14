@@ -25,12 +25,21 @@ class Weather {
     var icon: String
    // var maxTemp: String
     //var minTemp: String
+    
+    init(date: Int, temperature: Double, humidity: String, summary: String,icon: String) {
+        
+        self.date = date
+        self.temperature = temperature
+        self.humidity = humidity
+        self.summary = summary
+        self.icon = icon 
+    }
 
     
     init(json: JSON) {
        
         self.date = json["currently"]["time"].intValue
-        self.temperature = json["currently"]["tempature"].doubleValue
+        self.temperature = json["currently"]["temperature"].doubleValue
         self.humidity = json["currently"]["humidity"].stringValue
         self.summary = json["currently"]["summary"].stringValue
         self.icon = json["daily"]["data"]["icon"].stringValue

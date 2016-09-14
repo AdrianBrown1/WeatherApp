@@ -95,6 +95,7 @@ class WeatherView: UIView, CLLocationManagerDelegate {
             
             [backroundQueue .addOperationWithBlock({
                 
+                print(WeatherDataStore.sharedDataStore.weatherArray[0].temperature)
                 self.todaysWeather.append(WeatherDataStore.sharedDataStore.weatherArray[0])
                 print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
                 
@@ -102,9 +103,28 @@ class WeatherView: UIView, CLLocationManagerDelegate {
                 
                 weatherObjects.appendContentsOf(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
                 
+                let todaysWeather: Weather = Weather.init(date: WeatherDataStore.sharedDataStore.weatherArray[0].date, temperature: WeatherDataStore.sharedDataStore.weatherArray[0].temperature, humidity: WeatherDataStore.sharedDataStore.weatherArray[0].humidity, summary: WeatherDataStore.sharedDataStore.weatherArray[0].summary, icon: WeatherDataStore.sharedDataStore.weatherArray[0].icon)
+
                 
                 NSOperationQueue .mainQueue() .addOperationWithBlock({
-                    // update labels
+                   
+                    // Update labels 
+                    
+                    // Date conversion
+                    let date = NSDate(timeIntervalSince1970: Double(todaysWeather.date))
+                    let dayTimePeriodFormatter = NSDateFormatter()
+                    dayTimePeriodFormatter.dateFormat = "MMM dd YYYY"
+                    let dateString = dayTimePeriodFormatter.stringFromDate(date)
+                    self.dateLabel.text = dateString
+                    
+                    // Temp  & Humidity conversion
+                    let tempFormat = Int(round(todaysWeather.temperature))
+                    self.tempatureLabel.text = String("\(tempFormat)℉")
+                    let humidity = Double(todaysWeather.humidity)
+                    let humidityFormat = Int(round(humidity!))
+                    self.humidityLabel.text = String("Humidity: \(humidityFormat)%")
+
+                    self.summaryLabel.text = ("Weather: \(todaysWeather.summary)")
                     
                 })
                 
