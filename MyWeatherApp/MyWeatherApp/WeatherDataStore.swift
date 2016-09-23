@@ -17,11 +17,11 @@ class WeatherDataStore {
     var weatherArray: [Weather] = []
     var WeeklyWeatherArray: [WeeklyWeather] = []
     
-
     
-    func fetchWeatherData(lat: String, long: String, completion:(errorDescription: NSString?) -> ()) {
-                
-        Alamofire.request(.GET, "https://api.forecast.io/forecast/21161b1db326da35c6d6a5b09cc36782/\(lat),\(long)")
+    func fetchweatherData(lat: String, long: String, completion:@escaping (_: NSString?)-> ()){
+        
+        
+        Alamofire.request("https://api.forecast.io/forecast/21161b1db326da35c6d6a5b09cc36782/\(lat),\(long)")
             .responseJSON { response in
                 print("JSON Request Worked!")
                 if let rawJSON = response.result.value {
@@ -38,14 +38,14 @@ class WeatherDataStore {
                     }
                     
                     
-
+                    
                     // This is the WeeklyWeather objects
                     let thisWeeksWeather = json["daily"]["data"]
                     var oneDayOfTheWeek: WeeklyWeather
                     
                     for (_, value) in thisWeeksWeather {
                         //print("\(key) ----- \(value)")
-                      oneDayOfTheWeek = WeeklyWeather.init(json: value)
+                        oneDayOfTheWeek = WeeklyWeather.init(json: value)
                         
                         if self.WeeklyWeatherArray.count < 8 {
                             self.WeeklyWeatherArray.append(oneDayOfTheWeek)
@@ -53,13 +53,17 @@ class WeatherDataStore {
                             print(" I cant add more to this array either :( ")
                         }
                     }
-                    completion(errorDescription: nil)
+                    completion(_: nil)
                 }else {
                     print("Something went wrong!")
-                    completion(errorDescription: "oh nooo")
+                    completion(_: "oh nooo")
                 }
         }
+
+        
     }
+    
+
     
     
 

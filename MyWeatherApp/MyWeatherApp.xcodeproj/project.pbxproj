@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0834841D9488F800A225C4 /* WeeklyWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0834831D9488F800A225C4 /* WeeklyWeatherView.xib */; };
+		0A0834881D94894A00A225C4 /* WeeklyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0834871D94894A00A225C4 /* WeeklyWeatherView.swift */; };
 		0A3757701D6E10B6008F8F1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A37576F1D6E10B6008F8F1A /* Main.storyboard */; };
 		0A3757721D6E1853008F8F1A /* WeatherDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3757711D6E1853008F8F1A /* WeatherDataStore.swift */; };
 		0A3757741D6E1862008F8F1A /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3757731D6E1862008F8F1A /* Weather.swift */; };
 		0A3757761D6E1C43008F8F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3757751D6E1C43008F8F1A /* Constants.swift */; };
 		0A3757781D75F5E7008F8F1A /* SevenDayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3757771D75F5E7008F8F1A /* SevenDayWeather.swift */; };
+		0A9A2F751D8B3DCC004C5D8A /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA0AE1D7B5920007BE05B /* WeatherView.swift */; };
 		0ACFA0AD1D7B4C6A007BE05B /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFA0AC1D7B4C6A007BE05B /* WeatherView.xib */; };
-		0ACFA0AF1D7B5920007BE05B /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA0AE1D7B5920007BE05B /* WeatherView.swift */; };
 		0AD70BFC1D6E0BF3004D6BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD70BFB1D6E0BF3004D6BF6 /* AppDelegate.swift */; };
 		0AD70BFE1D6E0BF4004D6BF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD70BFD1D6E0BF4004D6BF6 /* ViewController.swift */; };
 		0AD70C031D6E0BF4004D6BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD70C021D6E0BF4004D6BF6 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		08000545CDFB1C2562A349A0 /* Pods-MyWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeatherApp/Pods-MyWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0A0834831D9488F800A225C4 /* WeeklyWeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WeeklyWeatherView.xib; path = ../WeeklyWeatherView.xib; sourceTree = "<group>"; };
+		0A0834871D94894A00A225C4 /* WeeklyWeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherView.swift; sourceTree = "<group>"; };
 		0A37576F1D6E10B6008F8F1A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0A3757711D6E1853008F8F1A /* WeatherDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataStore.swift; sourceTree = "<group>"; };
 		0A3757731D6E1862008F8F1A /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				0A37576F1D6E10B6008F8F1A /* Main.storyboard */,
 				0ACFA0AC1D7B4C6A007BE05B /* WeatherView.xib */,
 				0ACFA0AE1D7B5920007BE05B /* WeatherView.swift */,
+				0A0834831D9488F800A225C4 /* WeeklyWeatherView.xib */,
+				0A0834871D94894A00A225C4 /* WeeklyWeatherView.swift */,
 				0AD70C021D6E0BF4004D6BF6 /* Assets.xcassets */,
 				0AD70C041D6E0BF4004D6BF6 /* LaunchScreen.storyboard */,
 				0AD70C071D6E0BF4004D6BF6 /* Info.plist */,
@@ -141,6 +147,8 @@
 				TargetAttributes = {
 					0AD70BF71D6E0BF3004D6BF6 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 4EYBM4HGMV;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -170,6 +178,7 @@
 				0A3757701D6E10B6008F8F1A /* Main.storyboard in Resources */,
 				0AD70C061D6E0BF4004D6BF6 /* LaunchScreen.storyboard in Resources */,
 				0AD70C031D6E0BF4004D6BF6 /* Assets.xcassets in Resources */,
+				0A0834841D9488F800A225C4 /* WeeklyWeatherView.xib in Resources */,
 				0ACFA0AD1D7B4C6A007BE05B /* WeatherView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,7 +243,8 @@
 				0A3757721D6E1853008F8F1A /* WeatherDataStore.swift in Sources */,
 				0AD70BFE1D6E0BF4004D6BF6 /* ViewController.swift in Sources */,
 				0AD70BFC1D6E0BF3004D6BF6 /* AppDelegate.swift in Sources */,
-				0ACFA0AF1D7B5920007BE05B /* WeatherView.swift in Sources */,
+				0A9A2F751D8B3DCC004C5D8A /* WeatherView.swift in Sources */,
+				0A0834881D94894A00A225C4 /* WeeklyWeatherView.swift in Sources */,
 				0A3757781D75F5E7008F8F1A /* SevenDayWeather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,8 +277,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -313,8 +325,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -342,11 +356,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 08000545CDFB1C2562A349A0 /* Pods-MyWeatherApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4EYBM4HGMV;
 				INFOPLIST_FILE = MyWeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatiron.MyWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -354,12 +371,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA52DFE86030F36093A40E84 /* Pods-MyWeatherApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4EYBM4HGMV;
 				INFOPLIST_FILE = MyWeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatiron.MyWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

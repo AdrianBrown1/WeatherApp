@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeeklyWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundImageView" destination="dZZ-bx-jbs" id="ENU-3e-BBv"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="upg-uS-ziP"/>
+                <outlet property="dateLabel" destination="Dvf-t1-JyN" id="ACV-G6-wPW"/>
+                <outlet property="humidityLabel" destination="OdJ-CG-Kir" id="GUT-Bb-5Qn"/>
+                <outlet property="summaryLabel" destination="fh8-Zy-baJ" id="IFv-if-byE"/>
+                <outlet property="tempLabel" destination="1om-o6-C6X" id="a1y-E4-Wa1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvf-t1-JyN" userLabel="dateLabel">
+                    <frame key="frameInset" minX="267" minY="48" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdJ-CG-Kir" userLabel="humidityLabel">
+                    <frame key="frameInset" minX="114" minY="248" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh8-Zy-baJ" userLabel="SummaryLabel">
+                    <frame key="frameInset" minX="402" minY="248" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1om-o6-C6X" userLabel="tempLabel">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZZ-bx-jbs" userLabel="backgroundImageView">
+                    <frame key="frameInset" minX="180" minY="94" width="240" height="128"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="1om-o6-C6X" firstAttribute="height" secondItem="dZZ-bx-jbs" secondAttribute="height" id="1L1-cA-hAM"/>
+                <constraint firstItem="dZZ-bx-jbs" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.6" id="8lt-1a-mIV"/>
+                <constraint firstItem="dZZ-bx-jbs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9rh-Th-qfN"/>
+                <constraint firstItem="dZZ-bx-jbs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BPs-hr-PzU"/>
+                <constraint firstItem="Dvf-t1-JyN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.25" id="DIW-Y9-Ve2"/>
+                <constraint firstItem="OdJ-CG-Kir" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="N1h-fc-noD"/>
+                <constraint firstItem="OdJ-CG-Kir" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.8" id="SLr-2W-lgS"/>
+                <constraint firstItem="dZZ-bx-jbs" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="U9v-N7-kPc"/>
+                <constraint firstItem="1om-o6-C6X" firstAttribute="centerY" secondItem="dZZ-bx-jbs" secondAttribute="centerY" id="WRe-Yc-P4n"/>
+                <constraint firstItem="Dvf-t1-JyN" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Wcd-Bq-5Ps"/>
+                <constraint firstItem="Dvf-t1-JyN" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Y6R-oH-Yog"/>
+                <constraint firstItem="Dvf-t1-JyN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aMF-31-BEr"/>
+                <constraint firstItem="fh8-Zy-baJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.5" id="bET-VR-VAA"/>
+                <constraint firstItem="1om-o6-C6X" firstAttribute="centerX" secondItem="dZZ-bx-jbs" secondAttribute="centerX" id="hAi-PY-rbD"/>
+                <constraint firstItem="fh8-Zy-baJ" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="j2O-wF-xkX"/>
+                <constraint firstItem="OdJ-CG-Kir" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.5" id="mFM-2i-N7D"/>
+                <constraint firstItem="1om-o6-C6X" firstAttribute="width" secondItem="dZZ-bx-jbs" secondAttribute="width" id="qcw-oj-P4v"/>
+                <constraint firstItem="fh8-Zy-baJ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="rJ2-kN-KG8"/>
+                <constraint firstItem="OdJ-CG-Kir" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="rYZ-fl-OFs"/>
+                <constraint firstItem="fh8-Zy-baJ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.8" id="smo-g6-eSW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

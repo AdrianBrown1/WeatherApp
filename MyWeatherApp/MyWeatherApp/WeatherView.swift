@@ -37,21 +37,22 @@ class WeatherView: UIView, CLLocationManagerDelegate {
         super.init(coder: aDecoder)
         commonInit()
     }
-
+ 
     
-    private func commonInit() {
-        
-        NSBundle.mainBundle().loadNibNamed("WeatherView", owner: self, options: [:])
+    func commonInit() {
+        Bundle.main.loadNibNamed("WeatherView", owner: self, options: [:])
         addSubview(contentView)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         
-        contentView.topAnchor.constraintEqualToAnchor(topAnchor).active = true
-        contentView.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
-        contentView.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
-        contentView.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
         
-        // setting up coreLocation
+        
+        // coreLoaction Setup 
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -59,13 +60,12 @@ class WeatherView: UIView, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         locationManager.requestWhenInUseAuthorization()
 
-        
     }
     
 
     
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         
         let userLocation: CLLocation = locationManager.location as CLLocation!
@@ -81,55 +81,47 @@ class WeatherView: UIView, CLLocationManagerDelegate {
         
     }
     func updateWeather() {
+        print("I am updating the weather")
         
-        print(self.lat)
-        print(self.long)
-        
-        WeatherDataStore.sharedDataStore.fetchWeatherData(self.lat, long: self.long) { (errorDescription) in
-            print("back in the VC but not the normal one")
-            print(WeatherDataStore.sharedDataStore.weatherArray.count)
-            print(WeatherDataStore.sharedDataStore.weatherArray[0].summary)
-            print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray.count)
-            print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray[0].summary)
-            let backroundQueue = NSOperationQueue()
+        DispatchQueue.global(qos: .background).async {
+            print("I am the background thread")
             
-            [backroundQueue .addOperationWithBlock({
+            WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (errorDescription) in
                 
-                print(WeatherDataStore.sharedDataStore.weatherArray[0].temperature)
+                
                 self.todaysWeather.append(WeatherDataStore.sharedDataStore.weatherArray[0])
-                print(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
-                
-                var weatherObjects: [WeeklyWeather] = []
-                
-                weatherObjects.appendContentsOf(WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
                 
                 let todaysWeather: Weather = Weather.init(date: WeatherDataStore.sharedDataStore.weatherArray[0].date, temperature: WeatherDataStore.sharedDataStore.weatherArray[0].temperature, humidity: WeatherDataStore.sharedDataStore.weatherArray[0].humidity, summary: WeatherDataStore.sharedDataStore.weatherArray[0].summary, icon: WeatherDataStore.sharedDataStore.weatherArray[0].icon)
-
                 
-                NSOperationQueue .mainQueue() .addOperationWithBlock({
-                   
-                    // Update labels 
-                    
-                    // Date conversion
-                    let date = NSDate(timeIntervalSince1970: Double(todaysWeather.date))
-                    let dayTimePeriodFormatter = NSDateFormatter()
-                    dayTimePeriodFormatter.dateFormat = "MMM dd YYYY"
-                    let dateString = dayTimePeriodFormatter.stringFromDate(date)
-                    self.dateLabel.text = dateString
-                    
-                    // Temp  & Humidity conversion
-                    let tempFormat = Int(round(todaysWeather.temperature))
-                    self.tempatureLabel.text = String("\(tempFormat)℉")
-                    let humidity = Double(todaysWeather.humidity)
-                    let humidityFormat = Int(round(humidity!))
-                    self.humidityLabel.text = String("Humidity: \(humidityFormat)%")
+                    DispatchQueue.main.async(execute: {
+                        
+                        print("back in the main thread")
+                        // Update labels
+                        self.summaryLabel.text = "Weather: \(todaysWeather.summary)"
+                        
+                        // Date conversion
+                        let date = Date(timeIntervalSince1970: Double(todaysWeather.date))
+                        let dayTimePeriodFormatter = DateFormatter()
+                        dayTimePeriodFormatter.dateFormat = "MMM dd YYYY"
+                        let dateString = dayTimePeriodFormatter.string(from: date)
+                        self.dateLabel.text = dateString
+                        
+                        // Temp  & Humidity conversion
+                        let tempFormat = Int(round(todaysWeather.temperature))
+                        self.tempatureLabel.text = String("\(tempFormat)℉")
+                        let humidity = Double(todaysWeather.humidity)
+                        let humidityFormat = Int(round(humidity!))
+                        self.humidityLabel.text = String("Humidity: \(humidityFormat)%")
+                        
+                    })
 
-                    self.summaryLabel.text = ("Weather: \(todaysWeather.summary)")
-                    
-                })
-                
-            })]
+            }
+            
+            
         }
+        
+    
+
     }
 
 }

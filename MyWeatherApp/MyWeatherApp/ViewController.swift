@@ -10,6 +10,7 @@ import UIKit
 
 
 
+
 class ViewController: UIViewController {
     
     var todaysWeather: [Weather] = []
