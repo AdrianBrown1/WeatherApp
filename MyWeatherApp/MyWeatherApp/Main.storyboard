@@ -26,7 +26,25 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-0D-knI" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2p-6v-tcH" customClass="WeeklyWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tb4-9F-D4v" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94I-yy-bK2" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gk6-cD-h9x" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBt-nt-LZ2" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eW-C2-ThQ" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSI-ax-Z1d" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAr-9g-kI3" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -38,7 +56,7 @@
                                     <constraint firstItem="2GR-v8-1g3" firstAttribute="top" secondItem="7hC-0J-ukE" secondAttribute="top" id="AQH-4s-kVm"/>
                                     <constraint firstAttribute="trailing" secondItem="2GR-v8-1g3" secondAttribute="trailing" id="ArS-vj-c7r"/>
                                     <constraint firstItem="2GR-v8-1g3" firstAttribute="leading" secondItem="7hC-0J-ukE" secondAttribute="leading" id="C07-QA-rbx"/>
-                                    <constraint firstItem="2GR-v8-1g3" firstAttribute="width" secondItem="7hC-0J-ukE" secondAttribute="width" multiplier="2" id="E0e-xv-WdP"/>
+                                    <constraint firstItem="2GR-v8-1g3" firstAttribute="width" secondItem="7hC-0J-ukE" secondAttribute="width" multiplier="8" id="E0e-xv-WdP"/>
                                     <constraint firstAttribute="trailing" secondItem="2GR-v8-1g3" secondAttribute="trailing" id="Ggu-ip-a2X"/>
                                     <constraint firstItem="2GR-v8-1g3" firstAttribute="height" secondItem="7hC-0J-ukE" secondAttribute="height" id="InV-wz-bXi"/>
                                     <constraint firstItem="2GR-v8-1g3" firstAttribute="leading" secondItem="7hC-0J-ukE" secondAttribute="leading" id="KDF-Nf-7zf"/>
@@ -58,10 +76,20 @@
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="fAE-IN-8Aw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dayFiveView" destination="5eW-C2-ThQ" id="BFC-kN-XZn"/>
+                        <outlet property="dayFourVew" destination="jBt-nt-LZ2" id="0lG-gB-WfF"/>
+                        <outlet property="dayOneView" destination="tb4-9F-D4v" id="RhJ-tC-dwa"/>
+                        <outlet property="daySevenView" destination="uAr-9g-kI3" id="wsk-uN-dpc"/>
+                        <outlet property="daySixView" destination="aSI-ax-Z1d" id="7U2-vj-b0f"/>
+                        <outlet property="dayThreeView" destination="gk6-cD-h9x" id="LlR-ta-tFe"/>
+                        <outlet property="dayTwoView" destination="94I-yy-bK2" id="dYa-R5-9cG"/>
+                        <outlet property="todayWeatherView" destination="eTU-0D-knI" id="PUv-6Q-zSM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1h-9T-CCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14" y="121"/>
+            <point key="canvasLocation" x="401" y="121"/>
         </scene>
     </scenes>
 </document>

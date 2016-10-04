@@ -24,6 +24,7 @@ class WeatherDataStore {
         Alamofire.request("https://api.forecast.io/forecast/21161b1db326da35c6d6a5b09cc36782/\(lat),\(long)")
             .responseJSON { response in
                 print("JSON Request Worked!")
+                                
                 if let rawJSON = response.result.value {
                     
                     let json = JSON(rawJSON)
@@ -56,6 +57,7 @@ class WeatherDataStore {
                     completion(_: nil)
                 }else {
                     print("Something went wrong!")
+                    
                     completion(_: "oh nooo")
                 }
         }

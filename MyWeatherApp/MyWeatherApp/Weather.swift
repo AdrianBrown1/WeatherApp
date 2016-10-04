@@ -43,10 +43,6 @@ class Weather {
         self.humidity = json["currently"]["humidity"].stringValue
         self.summary = json["currently"]["summary"].stringValue
         self.icon = json["daily"]["data"]["icon"].stringValue
-        //self.maxTemp = json["daily"]["data"]["temperatureMax"].stringValue
-        //self.minTemp = json["daily"]["data"]["temperatureMin"].stringValue
-        
-//        self.day = day 
     }
 
 }
@@ -58,8 +54,8 @@ class WeeklyWeather  {
     var humidity: String
     var summary: String
     var icon: String
-    var maxTemp: String
-    var minTemp: String
+    var maxTemp: Double
+    var minTemp: Double
     
     init(json: JSON) {
         
@@ -68,8 +64,8 @@ class WeeklyWeather  {
         self.humidity = json["humidity"].stringValue
         self.summary = json["summary"].stringValue
         self.icon = json["icon"].stringValue
-        self.maxTemp = json["temperatureMax"].stringValue
-        self.minTemp = json["temperatureMin"].stringValue
+        self.maxTemp = json["temperatureMax"].doubleValue
+        self.minTemp = json["temperatureMin"].doubleValue
         
         
     }
