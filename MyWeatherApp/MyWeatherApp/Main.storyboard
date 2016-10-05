@@ -19,6 +19,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Vo-OA-sbd">
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7hC-0J-ukE">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2GR-v8-1g3" userLabel="contentView">
@@ -68,15 +71,20 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.35331010818481445" green="0.76627159118652344" blue="0.15810388326644897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="7hC-0J-ukE" firstAttribute="top" secondItem="3QB-oV-oYL" secondAttribute="bottom" constant="-20" id="5CS-pm-xFl"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="UCI-8p-iRD"/>
+                            <constraint firstItem="4Vo-OA-sbd" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" id="WUT-N5-usW"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="0.3" id="aci-SY-YJy"/>
-                            <constraint firstItem="7hC-0J-ukE" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" id="dwQ-G5-yf0"/>
+                            <constraint firstItem="7hC-0J-ukE" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" multiplier="0.3" id="dwQ-G5-yf0"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="fAE-IN-8Aw"/>
+                            <constraint firstItem="4Vo-OA-sbd" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="jTT-Jh-7D2"/>
+                            <constraint firstItem="4Vo-OA-sbd" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" id="pcc-o4-J3Q"/>
+                            <constraint firstItem="4Vo-OA-sbd" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="uKq-SA-tRb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="4Vo-OA-sbd" id="tMj-lZ-mpw"/>
                         <outlet property="dayFiveView" destination="5eW-C2-ThQ" id="BFC-kN-XZn"/>
                         <outlet property="dayFourVew" destination="jBt-nt-LZ2" id="0lG-gB-WfF"/>
                         <outlet property="dayOneView" destination="tb4-9F-D4v" id="RhJ-tC-dwa"/>

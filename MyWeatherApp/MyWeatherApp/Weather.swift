@@ -42,7 +42,7 @@ class Weather {
         self.temperature = json["currently"]["temperature"].doubleValue
         self.humidity = json["currently"]["humidity"].stringValue
         self.summary = json["currently"]["summary"].stringValue
-        self.icon = json["daily"]["data"]["icon"].stringValue
+        self.icon = json["currently"]["icon"].stringValue
     }
 
 }

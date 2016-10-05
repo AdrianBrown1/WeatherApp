@@ -51,30 +51,27 @@ class WeatherView: UIView {
         contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         
         
+        
     }
     
     
     func updateWeeklyWeather() {
         print("I am update the weekly Weather")
-        print(self.currentWeeklyWeather.date)
-//        print(self.currentWeeklyWeather.summary)
-//        print(self.currentWeeklyWeather.maxTemp)
-//        print(self.currentWeeklyWeather.minTemp)
+        print(self.currentWeeklyWeather.icon)
         
-        
-        self.summaryLabel.text = "Weather: \(self.currentWeeklyWeather.summary)"
+        self.summaryLabel.text = "\(self.currentWeeklyWeather.summary)"
         
         // Date conversion
         let date = Date(timeIntervalSince1970: Double(self.currentWeeklyWeather.date))
         let dayTimePeriodFormatter = DateFormatter()
-        dayTimePeriodFormatter.dateFormat = "MMM dd YYYY"
+        dayTimePeriodFormatter.dateFormat = "EEEE"
         let dateString = dayTimePeriodFormatter.string(from: date)
         self.dateLabel.text = dateString
         
         // Temp  & Humidity conversion
         let maxTemp = Int(round(self.currentWeeklyWeather.maxTemp))
         let minTemp = Int(round(self.currentWeeklyWeather.minTemp))
-        self.tempatureLabel.text = String("Max:\(maxTemp)- Min:\(minTemp)℉")
+        self.tempatureLabel.text = String("Max:\(maxTemp) \n Min:\(minTemp)℉")
         let humidity = Double(self.currentWeeklyWeather.humidity)
         let humidityFormat = Int(round(humidity!))
         self.humidityLabel.text = String("Humidity: \(humidityFormat)%")
@@ -83,17 +80,15 @@ class WeatherView: UIView {
     
     func updateWeather() {
         print("I am updating the weather")
-        print(self.currentWeather.date)
-        print(self.currentWeather.summary)
-        print(self.currentWeather.temperature)
-        print(self.currentWeather.humidity)
-
-        self.summaryLabel.text = "Weather: \(self.currentWeather.summary)"
+        print(self.currentWeather.icon)
+        
+        self.summaryLabel.text = "\(self.currentWeather.summary)"
         
         // Date conversion
         let date = Date(timeIntervalSince1970: Double(self.currentWeather.date))
         let dayTimePeriodFormatter = DateFormatter()
-        dayTimePeriodFormatter.dateFormat = "MMM dd YYYY"
+//      dayTimePeriodFormatter.dateFormat = "MMM dd YYYY"
+        dayTimePeriodFormatter.dateFormat = "EEEE"
         let dateString = dayTimePeriodFormatter.string(from: date)
         self.dateLabel.text = dateString
         
@@ -104,44 +99,16 @@ class WeatherView: UIView {
         let humidityFormat = Int(round(humidity!))
         self.humidityLabel.text = String("Humidity: \(humidityFormat)%")
         
+        self.backgroundImage.image = UIImage(named: "sunnyApp.png")
+        
+
     }
-    
+    // this function will set image
+    func setWeatherImage(icon: String) {
+        
+    }
 }
 
 
 
-//        DispatchQueue.global(qos: .background).async {
-//
-//            WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (errorDescription) in
-//
-//
-//                self.todaysWeather.append(WeatherDataStore.sharedDataStore.weatherArray[0])
-//
-//                let todaysWeather: Weather = Weather.init(date: WeatherDataStore.sharedDataStore.weatherArray[0].date, temperature: WeatherDataStore.sharedDataStore.weatherArray[0].temperature, humidity: WeatherDataStore.sharedDataStore.weatherArray[0].humidity, summary: WeatherDataStore.sharedDataStore.weatherArray[0].summary, icon: WeatherDataStore.sharedDataStore.weatherArray[0].icon)
-//
-//                    DispatchQueue.main.async(execute: {
-//
-//                        print("back in the main thread")
-//                        // Update labels
-//                        self.summaryLabel.text = "Weather: \(todaysWeather.summary)"
-//
-//                        // Date conversion
-//                        let date = Date(timeIntervalSince1970: Double(todaysWeather.date))
-//                        let dayTimePeriodFormatter = DateFormatter()
-//                        dayTimePeriodFormatter.dateFormat = "MMM dd YYYY"
-//                        let dateString = dayTimePeriodFormatter.string(from: date)
-//                        self.dateLabel.text = dateString
-//
-//                        // Temp  & Humidity conversion
-//                        let tempFormat = Int(round(todaysWeather.temperature))
-//                        self.tempatureLabel.text = String("\(tempFormat)℉")
-//                        let humidity = Double(todaysWeather.humidity)
-//                        let humidityFormat = Int(round(humidity!))
-//                        self.humidityLabel.text = String("Humidity: \(humidityFormat)%")
-//
-//                    })
-//
-//            }
 
-
-//        }
