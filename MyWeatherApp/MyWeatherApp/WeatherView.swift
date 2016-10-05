@@ -75,6 +75,8 @@ class WeatherView: UIView {
         let humidity = Double(self.currentWeeklyWeather.humidity)
         let humidityFormat = Int(round(humidity!))
         self.humidityLabel.text = String("Humidity: \(humidityFormat)%")
+        
+        setWeatherImage(icon: self.currentWeeklyWeather.icon)
 
     }
     
@@ -99,16 +101,41 @@ class WeatherView: UIView {
         let humidityFormat = Int(round(humidity!))
         self.humidityLabel.text = String("Humidity: \(humidityFormat)%")
         
-        self.backgroundImage.image = UIImage(named: "sunnyApp.png")
+        setWeatherImage(icon: self.currentWeather.icon)
         
 
     }
     // this function will set image
     func setWeatherImage(icon: String) {
         
+        switch icon {
+        case "clear-day":
+            self.backgroundImage.image = UIImage(named: "sunnyApp.png")
+        case "clear-night":
+            self.backgroundImage.image = UIImage(named: "clearNightImage.png")
+        case "rain":
+            self.backgroundImage.image = UIImage(named: "rainImage.png")
+        case "snow":
+            self.backgroundImage.image = UIImage(named: "snowImage.png")
+        case "sleet":
+            self.backgroundImage.image = UIImage(named: "sleetImage.png")
+        case "wind":
+            self.backgroundImage.image = UIImage(named: "windImage.png")
+        case "fog":
+            self.backgroundImage.image = UIImage(named: "fogImage.png")
+        case "cloudy":
+            self.backgroundImage.image = UIImage(named: "cloudyImage.png")
+        case "partly-cloudy-day":
+            self.backgroundImage.image = UIImage(named: "cloudyDayImage.png")
+        case "partly-cloudy-night":
+            self.backgroundImage.image = UIImage(named: "cloudyNightImsge.png")
+        default:
+            print("There is a missing case")
+        }
+        
+        
     }
+
+
 }
-
-
-
 
