@@ -22,7 +22,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var weeklyWeatherObjectsArray: [WeeklyWeather] = []
     var weatherViews : [WeatherView] = []
     
-    
     @IBOutlet weak var todayWeatherView: WeatherView!
     @IBOutlet weak var dayOneView: WeatherView!
     @IBOutlet weak var dayTwoView: WeatherView!
@@ -37,6 +36,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         
         // coreLoaction Setup
         locationManager = CLLocationManager()
@@ -52,6 +52,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let strlong = String(format: "%.4f",long!)
         self.lat = strlat
         self.long = strlong
+        
         
         //Views
         self.todayWeatherView.layer.cornerRadius = 10
@@ -75,7 +76,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.weatherViews.append(self.dayFiveView)
         self.weatherViews.append(self.daySixView)
         self.weatherViews.append(self.daySevenView)
-
+        
         for view in self.weatherViews {
             
             view.layer.cornerRadius = 10
@@ -92,6 +93,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             view.backgroundColor = .clear
         }
         
+        self.backgroundImage.backgroundColor = .clear
+        
         //Fetch Data
         DispatchQueue.global(qos: .background).async {
             
@@ -99,22 +102,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 
                 self.weatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.weatherArray)
                 self.weeklyWeatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
-               
+                
                 //today's weather information
                 for weatherObject in self.weatherObjectsArray {
                     print(weatherObject.summary)
                     let todaysWeather = self.todayWeatherView
                     todaysWeather?.currentWeather = weatherObject
-                    
-//                    if todaysWeather?.currentWeather.icon == "Clear" {
-//                        self.backgroundImage.image = UIImage(named: "temp-background-image.jpg")
-//                        
-//                    }
-                    self.backgroundImage.image = UIImage(named: "temp-background-image.jpg")
-
-                    
+            // this should be done in main thread vvv
+                 self.setbackgroundImage(icon: (todaysWeather?.currentWeather.icon)!)
+    
                 }
-
+                
                 // check on first object in array later
                 self.weeklyWeatherObjectsArray.remove(at: 0)
                 
@@ -123,20 +121,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     let todaysView = dayView
                     todaysView.currentWeeklyWeather = dayObject
                 }
-    
-            }
-        }
-    
-    }
-    // This function will set the background image to match Weather 
-    func setbackgroundImage(icon: String) {
-        let weathertypes = ["clear-day", "clear-night", "rain", "snow", "sleet", "wind", "fog", "cloudy", "partly-cloudy-day", "partly-cloudy-night"]
-        
-        for type in weathertypes {
-            if type == icon {
                 
             }
         }
+        
     }
+    // This function will set the background image to match Weather
+    func setbackgroundImage(icon: String) {
+        
+        switch icon {
+        case "clear-day":
+            self.backgroundImage.image = UIImage(named: "clearSkyBackground.jpg")
+        case "clear-night":
+            self.backgroundImage.image = UIImage(named: "clearNightSkyBackground.jpg")
+        case "rain":
+            self.backgroundImage.image = UIImage(named: "rainBackground.jpg")
+        case "snow":
+            self.backgroundImage.image = UIImage(named: "snowBackground.jpg")
+        case "sleet":
+            self.backgroundImage.image = UIImage(named: "sleetBackground.jpg")
+        case "wind":
+            self.backgroundImage.image = UIImage(named: "windyBackground.jpg")
+        case "fog":
+            self.backgroundImage.image = UIImage(named: "fogBackground.jpg")
+        case "cloudy":
+            self.backgroundImage.image = UIImage(named: "cloudBackground.jog")
+        case "partly-cloudy-day":
+            self.backgroundImage.image = UIImage(named: "Sunny-SkyBackground.jpg")
+        case "partly-cloudy-night":
+            self.backgroundImage.image = UIImage(named: "cloudyNightBackground.jpg")
+        default:
+            print("There is a missing case")
+        }
+    }
+   
     
 }
+
+

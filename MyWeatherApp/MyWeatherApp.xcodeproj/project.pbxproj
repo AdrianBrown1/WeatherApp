@@ -23,6 +23,16 @@
 		0AB4798F1DA59811008974D0 /* cloudyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB4798E1DA59811008974D0 /* cloudyImage.png */; };
 		0AB479911DA5986B008974D0 /* cloudyDayImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479901DA5986B008974D0 /* cloudyDayImage.png */; };
 		0AB479931DA59981008974D0 /* cloudyNightImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479921DA59981008974D0 /* cloudyNightImage.png */; };
+		0AB479991DA6C858008974D0 /* Sunny-SkyBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479981DA6C858008974D0 /* Sunny-SkyBackground.jpg */; };
+		0AB4799B1DA6E47B008974D0 /* clearSkyBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB4799A1DA6E47B008974D0 /* clearSkyBackground.jpg */; };
+		0AB479A31DA6E748008974D0 /* clearNightSkyBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479A21DA6E748008974D0 /* clearNightSkyBackground.jpg */; };
+		0AB479A51DA6E998008974D0 /* rainBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479A41DA6E998008974D0 /* rainBackground.jpg */; };
+		0AB479A71DA6EAE1008974D0 /* snowBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479A61DA6EAE1008974D0 /* snowBackground.jpg */; };
+		0AB479A91DA6EB6E008974D0 /* sleetBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479A81DA6EB6E008974D0 /* sleetBackground.jpg */; };
+		0AB479B11DA6EF38008974D0 /* windyBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479B01DA6EF38008974D0 /* windyBackground.jpg */; };
+		0AB479B31DA6EFA0008974D0 /* fogBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479B21DA6EFA0008974D0 /* fogBackground.jpg */; };
+		0AB479B51DA6F020008974D0 /* cloudBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479B41DA6F020008974D0 /* cloudBackground.jpg */; };
+		0AB479B71DA6F23D008974D0 /* cloudyNightBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB479B61DA6F23D008974D0 /* cloudyNightBackground.jpg */; };
 		0AB6BED11DA41B35002C6DCE /* temp-background-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AB6BED01DA41B35002C6DCE /* temp-background-image.jpg */; };
 		0ACFA0AD1D7B4C6A007BE05B /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFA0AC1D7B4C6A007BE05B /* WeatherView.xib */; };
 		0AD70BFC1D6E0BF3004D6BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD70BFB1D6E0BF3004D6BF6 /* AppDelegate.swift */; };
@@ -49,6 +59,16 @@
 		0AB4798E1DA59811008974D0 /* cloudyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloudyImage.png; path = ../../../Downloads/cloudyImage.png; sourceTree = "<group>"; };
 		0AB479901DA5986B008974D0 /* cloudyDayImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloudyDayImage.png; path = ../../../Downloads/cloudyDayImage.png; sourceTree = "<group>"; };
 		0AB479921DA59981008974D0 /* cloudyNightImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloudyNightImage.png; path = ../../../Downloads/cloudyNightImage.png; sourceTree = "<group>"; };
+		0AB479981DA6C858008974D0 /* Sunny-SkyBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Sunny-SkyBackground.jpg"; path = "../../../Downloads/Sunny-SkyBackground.jpg"; sourceTree = "<group>"; };
+		0AB4799A1DA6E47B008974D0 /* clearSkyBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = clearSkyBackground.jpg; path = ../../../Downloads/clearSkyBackground.jpg; sourceTree = "<group>"; };
+		0AB479A21DA6E748008974D0 /* clearNightSkyBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = clearNightSkyBackground.jpg; path = ../../../Downloads/clearNightSkyBackground.jpg; sourceTree = "<group>"; };
+		0AB479A41DA6E998008974D0 /* rainBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = rainBackground.jpg; path = ../../../Downloads/rainBackground.jpg; sourceTree = "<group>"; };
+		0AB479A61DA6EAE1008974D0 /* snowBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = snowBackground.jpg; path = ../../../Downloads/snowBackground.jpg; sourceTree = "<group>"; };
+		0AB479A81DA6EB6E008974D0 /* sleetBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sleetBackground.jpg; path = ../../../Downloads/sleetBackground.jpg; sourceTree = "<group>"; };
+		0AB479B01DA6EF38008974D0 /* windyBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = windyBackground.jpg; path = ../../../Downloads/windyBackground.jpg; sourceTree = "<group>"; };
+		0AB479B21DA6EFA0008974D0 /* fogBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fogBackground.jpg; path = ../../../Downloads/fogBackground.jpg; sourceTree = "<group>"; };
+		0AB479B41DA6F020008974D0 /* cloudBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cloudBackground.jpg; path = ../../../Downloads/cloudBackground.jpg; sourceTree = "<group>"; };
+		0AB479B61DA6F23D008974D0 /* cloudyNightBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cloudyNightBackground.jpg; path = ../../../Downloads/cloudyNightBackground.jpg; sourceTree = "<group>"; };
 		0AB6BED01DA41B35002C6DCE /* temp-background-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "temp-background-image.jpg"; path = "../../../Downloads/temp-background-image.jpg"; sourceTree = "<group>"; };
 		0ACFA0AC1D7B4C6A007BE05B /* WeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
 		0ACFA0AE1D7B5920007BE05B /* WeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -105,6 +125,16 @@
 				0ACFA0AC1D7B4C6A007BE05B /* WeatherView.xib */,
 				0ACFA0AE1D7B5920007BE05B /* WeatherView.swift */,
 				0AD70C021D6E0BF4004D6BF6 /* Assets.xcassets */,
+				0AB479B61DA6F23D008974D0 /* cloudyNightBackground.jpg */,
+				0AB479B41DA6F020008974D0 /* cloudBackground.jpg */,
+				0AB479B21DA6EFA0008974D0 /* fogBackground.jpg */,
+				0AB479B01DA6EF38008974D0 /* windyBackground.jpg */,
+				0AB479A81DA6EB6E008974D0 /* sleetBackground.jpg */,
+				0AB479A61DA6EAE1008974D0 /* snowBackground.jpg */,
+				0AB479A41DA6E998008974D0 /* rainBackground.jpg */,
+				0AB479A21DA6E748008974D0 /* clearNightSkyBackground.jpg */,
+				0AB4799A1DA6E47B008974D0 /* clearSkyBackground.jpg */,
+				0AB479981DA6C858008974D0 /* Sunny-SkyBackground.jpg */,
 				0AB479921DA59981008974D0 /* cloudyNightImage.png */,
 				0AB479901DA5986B008974D0 /* cloudyDayImage.png */,
 				0AB4798E1DA59811008974D0 /* cloudyImage.png */,
@@ -203,19 +233,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AB479871DA595EA008974D0 /* snowImage.png in Resources */,
+				0AB479B51DA6F020008974D0 /* cloudBackground.jpg in Resources */,
 				0AB479931DA59981008974D0 /* cloudyNightImage.png in Resources */,
 				0A3757701D6E10B6008F8F1A /* Main.storyboard in Resources */,
 				0AD70C061D6E0BF4004D6BF6 /* LaunchScreen.storyboard in Resources */,
 				0AB4798F1DA59811008974D0 /* cloudyImage.png in Resources */,
 				0AB479851DA59579008974D0 /* clearNightImage.png in Resources */,
 				0AD70C031D6E0BF4004D6BF6 /* Assets.xcassets in Resources */,
+				0AB479991DA6C858008974D0 /* Sunny-SkyBackground.jpg in Resources */,
 				0AB479911DA5986B008974D0 /* cloudyDayImage.png in Resources */,
 				0AB4798B1DA59711008974D0 /* sleetImage.png in Resources */,
 				0AB4798D1DA59789008974D0 /* fogImage.png in Resources */,
 				0AB479891DA59709008974D0 /* windImage.png in Resources */,
+				0AB479B71DA6F23D008974D0 /* cloudyNightBackground.jpg in Resources */,
+				0AB479B31DA6EFA0008974D0 /* fogBackground.jpg in Resources */,
+				0AB479A31DA6E748008974D0 /* clearNightSkyBackground.jpg in Resources */,
 				0ACFA0AD1D7B4C6A007BE05B /* WeatherView.xib in Resources */,
+				0AB479A91DA6EB6E008974D0 /* sleetBackground.jpg in Resources */,
+				0AB4799B1DA6E47B008974D0 /* clearSkyBackground.jpg in Resources */,
 				0AB6BED11DA41B35002C6DCE /* temp-background-image.jpg in Resources */,
+				0AB479A71DA6EAE1008974D0 /* snowBackground.jpg in Resources */,
 				0AB479831DA59388008974D0 /* rainImage.png in Resources */,
+				0AB479B11DA6EF38008974D0 /* windyBackground.jpg in Resources */,
+				0AB479A51DA6E998008974D0 /* rainBackground.jpg in Resources */,
 				0AB479811DA58D33008974D0 /* sunnyApp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

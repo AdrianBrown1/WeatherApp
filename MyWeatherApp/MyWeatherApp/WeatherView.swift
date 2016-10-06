@@ -82,8 +82,6 @@ class WeatherView: UIView {
     
     func updateWeather() {
         print("I am updating the weather")
-        print(self.currentWeather.icon)
-        
         self.summaryLabel.text = "\(self.currentWeather.summary)"
         
         // Date conversion
@@ -128,12 +126,11 @@ class WeatherView: UIView {
         case "partly-cloudy-day":
             self.backgroundImage.image = UIImage(named: "cloudyDayImage.png")
         case "partly-cloudy-night":
-            self.backgroundImage.image = UIImage(named: "cloudyNightImsge.png")
+            self.backgroundImage.image = UIImage(named: "cloudyNightImage.png")
         default:
             print("There is a missing case")
         }
-        
-        
+    
     }
 
 
