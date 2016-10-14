@@ -39,6 +39,8 @@
 		0AD70BFE1D6E0BF4004D6BF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD70BFD1D6E0BF4004D6BF6 /* ViewController.swift */; };
 		0AD70C031D6E0BF4004D6BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD70C021D6E0BF4004D6BF6 /* Assets.xcassets */; };
 		0AD70C061D6E0BF4004D6BF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD70C041D6E0BF4004D6BF6 /* LaunchScreen.storyboard */; };
+		0AF022921DB13067005CAFAB /* BottomWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AF022911DB13067005CAFAB /* BottomWeatherView.xib */; };
+		0AF022941DB139E5005CAFAB /* BottomWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF022931DB139E5005CAFAB /* BottomWeatherView.swift */; };
 		D24308F66AFAA86DB9D1E0D3 /* Pods_MyWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29E6F5EB628F5C9DE1A2B4F /* Pods_MyWeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		0AD70C021D6E0BF4004D6BF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AD70C051D6E0BF4004D6BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AD70C071D6E0BF4004D6BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AF022911DB13067005CAFAB /* BottomWeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomWeatherView.xib; path = ../BottomWeatherView.xib; sourceTree = "<group>"; };
+		0AF022931DB139E5005CAFAB /* BottomWeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomWeatherView.swift; sourceTree = "<group>"; };
 		B29E6F5EB628F5C9DE1A2B4F /* Pods_MyWeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA52DFE86030F36093A40E84 /* Pods-MyWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeatherApp/Pods-MyWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +128,8 @@
 				0A37576F1D6E10B6008F8F1A /* Main.storyboard */,
 				0ACFA0AC1D7B4C6A007BE05B /* WeatherView.xib */,
 				0ACFA0AE1D7B5920007BE05B /* WeatherView.swift */,
+				0AF022911DB13067005CAFAB /* BottomWeatherView.xib */,
+				0AF022931DB139E5005CAFAB /* BottomWeatherView.swift */,
 				0AD70C021D6E0BF4004D6BF6 /* Assets.xcassets */,
 				0AB479B61DA6F23D008974D0 /* cloudyNightBackground.jpg */,
 				0AB479B41DA6F020008974D0 /* cloudBackground.jpg */,
@@ -234,6 +240,7 @@
 			files = (
 				0AB479871DA595EA008974D0 /* snowImage.png in Resources */,
 				0AB479B51DA6F020008974D0 /* cloudBackground.jpg in Resources */,
+				0AF022921DB13067005CAFAB /* BottomWeatherView.xib in Resources */,
 				0AB479931DA59981008974D0 /* cloudyNightImage.png in Resources */,
 				0A3757701D6E10B6008F8F1A /* Main.storyboard in Resources */,
 				0AD70C061D6E0BF4004D6BF6 /* LaunchScreen.storyboard in Resources */,
@@ -317,6 +324,7 @@
 			files = (
 				0A3757761D6E1C43008F8F1A /* Constants.swift in Sources */,
 				0A3757741D6E1862008F8F1A /* Weather.swift in Sources */,
+				0AF022941DB139E5005CAFAB /* BottomWeatherView.swift in Sources */,
 				0A3757721D6E1853008F8F1A /* WeatherDataStore.swift in Sources */,
 				0AD70BFE1D6E0BF4004D6BF6 /* ViewController.swift in Sources */,
 				0AD70BFC1D6E0BF3004D6BF6 /* AppDelegate.swift in Sources */,
