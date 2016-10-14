@@ -70,28 +70,69 @@
                                     <constraint firstAttribute="trailing" secondItem="2GR-v8-1g3" secondAttribute="trailing" id="wOh-St-flr"/>
                                 </constraints>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V2l-Q4-uTw">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etb-Pg-gRH" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hr7-Jm-FQS" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYs-R4-CqN" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUx-ze-qaU" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWR-mR-Go9" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tt-ar-kC6" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDL-4n-gY1" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLt-fG-DaN" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35331010819999997" green="0.76627159119999999" blue="0.1581038833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="top" secondItem="3QB-oV-oYL" secondAttribute="bottom" constant="-20" id="5CS-pm-xFl"/>
+                            <constraint firstItem="V2l-Q4-uTw" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="5yB-pt-Qtf"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="UCI-8p-iRD"/>
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" id="WUT-N5-usW"/>
+                            <constraint firstItem="V2l-Q4-uTw" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="Xlz-xd-0Qf"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="0.3" id="aci-SY-YJy"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" multiplier="0.3" id="dwQ-G5-yf0"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="fAE-IN-8Aw"/>
+                            <constraint firstItem="V2l-Q4-uTw" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="0.2" id="fOh-Gx-ptf"/>
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="jTT-Jh-7D2"/>
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" id="pcc-o4-J3Q"/>
+                            <constraint firstItem="V2l-Q4-uTw" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" multiplier="1.6" id="u6g-al-5H2"/>
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="uKq-SA-tRb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="4Vo-OA-sbd" id="tMj-lZ-mpw"/>
+                        <outlet property="dayFiveBottomView" destination="5tt-ar-kC6" id="UWk-Jp-DaW"/>
                         <outlet property="dayFiveView" destination="5eW-C2-ThQ" id="BFC-kN-XZn"/>
+                        <outlet property="dayFourBottomView" destination="kWR-mR-Go9" id="u5H-yg-OKd"/>
                         <outlet property="dayFourVew" destination="jBt-nt-LZ2" id="0lG-gB-WfF"/>
+                        <outlet property="dayOneBottomView" destination="Hr7-Jm-FQS" id="fiz-Ga-u4H"/>
                         <outlet property="dayOneView" destination="tb4-9F-D4v" id="RhJ-tC-dwa"/>
+                        <outlet property="daySevenBottomVew" destination="FLt-fG-DaN" id="IzX-bF-k6e"/>
                         <outlet property="daySevenView" destination="uAr-9g-kI3" id="wsk-uN-dpc"/>
+                        <outlet property="daySixBottomView" destination="GDL-4n-gY1" id="qDt-t8-u42"/>
                         <outlet property="daySixView" destination="aSI-ax-Z1d" id="7U2-vj-b0f"/>
+                        <outlet property="dayThreeBottomView" destination="NUx-ze-qaU" id="naT-Aj-UvE"/>
                         <outlet property="dayThreeView" destination="gk6-cD-h9x" id="LlR-ta-tFe"/>
+                        <outlet property="dayTwoBottomView" destination="uYs-R4-CqN" id="AhG-j4-BpN"/>
                         <outlet property="dayTwoView" destination="94I-yy-bK2" id="dYa-R5-9cG"/>
+                        <outlet property="todayBottomView" destination="etb-Pg-gRH" id="igH-Sn-vY0"/>
                         <outlet property="todayWeatherView" destination="eTU-0D-knI" id="PUv-6Q-zSM"/>
                     </connections>
                 </viewController>

@@ -49,16 +49,11 @@ class WeatherView: UIView {
         contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        
-        
-        
+ 
     }
     
     
-    func updateWeeklyWeather() {
-        print("I am update the weekly Weather")
-        print(self.currentWeeklyWeather.icon)
-        
+    func updateWeeklyWeather() {        
         self.summaryLabel.text = "\(self.currentWeeklyWeather.summary)"
         
         // Date conversion

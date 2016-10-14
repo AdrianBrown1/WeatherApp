@@ -47,7 +47,6 @@ class WeatherDataStore {
                     for (_, value) in thisWeeksWeather {
                         //print("\(key) ----- \(value)")
                         oneDayOfTheWeek = WeeklyWeather.init(json: value)
-                        
                         if self.WeeklyWeatherArray.count < 8 {
                             self.WeeklyWeatherArray.append(oneDayOfTheWeek)
                         }else {

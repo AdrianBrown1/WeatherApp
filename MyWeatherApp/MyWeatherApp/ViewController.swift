@@ -21,7 +21,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var weatherObjectsArray: [Weather] = []
     var weeklyWeatherObjectsArray: [WeeklyWeather] = []
     var weatherViews : [WeatherView] = []
-    
+    //WeatherViews
     @IBOutlet weak var todayWeatherView: WeatherView!
     @IBOutlet weak var dayOneView: WeatherView!
     @IBOutlet weak var dayTwoView: WeatherView!
@@ -31,6 +31,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var daySixView: WeatherView!
     @IBOutlet weak var daySevenView: WeatherView!
     
+    //BottomWeatherViews 
+    @IBOutlet weak var todayBottomView: BottomWeatherView!
+    @IBOutlet weak var dayOneBottomView: BottomWeatherView!
+    @IBOutlet weak var dayTwoBottomView: BottomWeatherView!
+    @IBOutlet weak var dayThreeBottomView: BottomWeatherView!
+    @IBOutlet weak var dayFourBottomView: BottomWeatherView!
+    @IBOutlet weak var dayFiveBottomView: BottomWeatherView!
+    @IBOutlet weak var daySixBottomView: BottomWeatherView!
+    @IBOutlet weak var daySevenBottomVew: BottomWeatherView!
+    var bottomWeatherViews: [BottomWeatherView] = []
+
+    //background Image
     @IBOutlet weak var backgroundImage: UIImageView!
     
     
@@ -54,7 +66,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.long = strlong
         
         
-        //Views
+        //View Cards
         self.todayWeatherView.layer.cornerRadius = 10
         self.todayWeatherView.layer.masksToBounds = true
         self.todayWeatherView.layer.borderColor = UIColor.gray.cgColor
@@ -68,7 +80,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.todayWeatherView.clipsToBounds = false
         self.todayWeatherView.backgroundColor = .clear
         
-        // Add views to Array of Views
+        // Add view cards to Array of Views
         self.weatherViews.append(self.dayOneView)
         self.weatherViews.append(self.dayTwoView)
         self.weatherViews.append(self.dayThreeView)
@@ -93,6 +105,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             view.backgroundColor = .clear
         }
         
+        self.bottomWeatherViews.append(self.dayOneBottomView)
+        self.bottomWeatherViews.append(self.dayTwoBottomView)
+        self.bottomWeatherViews.append(self.dayThreeBottomView)
+        self.bottomWeatherViews.append(self.dayFourBottomView)
+        self.bottomWeatherViews.append(self.dayFiveBottomView)
+        self.bottomWeatherViews.append(self.daySixBottomView)
+        self.bottomWeatherViews.append(self.daySevenBottomVew)
+        
         self.backgroundImage.backgroundColor = .clear
         
         //Fetch Data
@@ -105,23 +125,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 
                 //today's weather information
                 for weatherObject in self.weatherObjectsArray {
-                    print(weatherObject.summary)
+                    //setting view cards
                     let todaysWeather = self.todayWeatherView
                     todaysWeather?.currentWeather = weatherObject
-            // this should be done in main thread vvv
+                    //setting bottom view
+                    let bottomViewTodaysWeather = self.todayBottomView
+                    bottomViewTodaysWeather?.currentWeather = weatherObject
+                    
+                // this should be done in main thread vvv
                  self.setbackgroundImage(icon: (todaysWeather?.currentWeather.icon)!)
-    
                 }
-                
                 // check on first object in array later
                 self.weeklyWeatherObjectsArray.remove(at: 0)
                 
+                // Setting
                 for (dayView, dayObject) in zip(self.weatherViews, self.weeklyWeatherObjectsArray) {
                     
                     let todaysView = dayView
                     todaysView.currentWeeklyWeather = dayObject
                 }
                 
+                for (bottomDayView, dayObject) in zip(self.bottomWeatherViews, self.weeklyWeatherObjectsArray) {
+         
+                    let dailyBottomView = bottomDayView
+                    dailyBottomView.currentWeeklyWeather = dayObject
+    
+                }
             }
         }
         
@@ -155,7 +184,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
    
-    
+        
 }
 
 

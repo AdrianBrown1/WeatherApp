@@ -13,13 +13,12 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="eEg-qm-BP4"/>
                 <outlet property="dateLabel" destination="uqG-2p-FdK" id="D9U-tn-QcI"/>
                 <outlet property="highTempLabel" destination="l8k-bZ-x6e" id="oAT-cE-ZaS"/>
-                <outlet property="lowTempLabel" destination="PQ4-hU-tha" id="2bS-8c-Qhr"/>
                 <outlet property="todayTempLabel" destination="dcQ-4G-qio" id="SDG-p4-aIw"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="101" height="238"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqG-2p-FdK" userLabel="DateLabel">
@@ -32,43 +31,35 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nk4-18-daD">
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8k-bZ-x6e" userLabel="highTempLabel">
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQ4-hU-tha" userLabel="lowTempLabel">
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8k-bZ-x6e" userLabel="highTempLabel">
+                    <frame key="frameInset" minY="95" width="101" height="47"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ofK-rv-D4B" userLabel="bottomWeatherImageView"/>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Nk4-18-daD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.6" id="17j-M0-rbg"/>
                 <constraint firstItem="ofK-rv-D4B" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="71F-ob-nfW"/>
-                <constraint firstItem="Nk4-18-daD" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="BLx-rs-LSx"/>
-                <constraint firstItem="Nk4-18-daD" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="FWO-Rv-OEu"/>
+                <constraint firstItem="l8k-bZ-x6e" firstAttribute="width" secondItem="dcQ-4G-qio" secondAttribute="width" id="Ddc-G3-tJh"/>
                 <constraint firstItem="dcQ-4G-qio" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.5" id="NXj-sN-R3i"/>
                 <constraint firstItem="dcQ-4G-qio" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="QJc-9Z-2D3"/>
-                <constraint firstItem="ofK-rv-D4B" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="RAc-nh-tVT"/>
-                <constraint firstItem="Nk4-18-daD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Y5Y-FA-8Cg"/>
+                <constraint firstItem="ofK-rv-D4B" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.6" id="RAc-nh-tVT"/>
                 <constraint firstItem="dcQ-4G-qio" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="a1N-Iv-5iE"/>
+                <constraint firstItem="l8k-bZ-x6e" firstAttribute="centerX" secondItem="dcQ-4G-qio" secondAttribute="centerX" id="aUl-UC-gpu"/>
                 <constraint firstItem="uqG-2p-FdK" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="dqH-IJ-tQg"/>
+                <constraint firstItem="l8k-bZ-x6e" firstAttribute="height" secondItem="dcQ-4G-qio" secondAttribute="height" id="eio-xB-jvK"/>
                 <constraint firstItem="uqG-2p-FdK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.4" id="gUa-5b-P2v"/>
                 <constraint firstItem="dcQ-4G-qio" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="h1m-7P-4iE"/>
                 <constraint firstItem="uqG-2p-FdK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="igh-ND-QFb"/>
-                <constraint firstItem="ofK-rv-D4B" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.3" id="jSt-l3-BFU"/>
+                <constraint firstItem="ofK-rv-D4B" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="jSt-l3-BFU"/>
+                <constraint firstItem="l8k-bZ-x6e" firstAttribute="centerY" secondItem="dcQ-4G-qio" secondAttribute="centerY" id="uJ0-JU-LhM"/>
                 <constraint firstItem="ofK-rv-D4B" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="uRb-LY-HUa"/>
                 <constraint firstItem="uqG-2p-FdK" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="zn5-3B-bHY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-181" y="-116"/>
+            <point key="canvasLocation" x="-155.5" y="-13"/>
         </view>
     </objects>
 </document>
