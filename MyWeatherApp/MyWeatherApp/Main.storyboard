@@ -70,50 +70,59 @@
                                     <constraint firstAttribute="trailing" secondItem="2GR-v8-1g3" secondAttribute="trailing" id="wOh-St-flr"/>
                                 </constraints>
                             </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V2l-Q4-uTw">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORu-RS-4UJ">
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etb-Pg-gRH" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hr7-Jm-FQS" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYs-R4-CqN" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUx-ze-qaU" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWR-mR-Go9" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tt-ar-kC6" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDL-4n-gY1" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLt-fG-DaN" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V2l-Q4-uTw">
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etb-Pg-gRH" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hr7-Jm-FQS" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYs-R4-CqN" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUx-ze-qaU" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWR-mR-Go9" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tt-ar-kC6" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDL-4n-gY1" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLt-fG-DaN" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.35331010819999997" green="0.76627159119999999" blue="0.1581038833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="V2l-Q4-uTw" firstAttribute="centerX" secondItem="ORu-RS-4UJ" secondAttribute="centerX" id="358-yq-Qkx"/>
+                                    <constraint firstItem="V2l-Q4-uTw" firstAttribute="height" secondItem="ORu-RS-4UJ" secondAttribute="height" id="N1w-7K-kPd"/>
+                                    <constraint firstItem="V2l-Q4-uTw" firstAttribute="width" secondItem="ORu-RS-4UJ" secondAttribute="width" id="NsK-7u-ZbB"/>
+                                    <constraint firstItem="V2l-Q4-uTw" firstAttribute="centerY" secondItem="ORu-RS-4UJ" secondAttribute="centerY" id="zYS-vq-mMj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="top" secondItem="3QB-oV-oYL" secondAttribute="bottom" constant="-20" id="5CS-pm-xFl"/>
-                            <constraint firstItem="V2l-Q4-uTw" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="5yB-pt-Qtf"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="UCI-8p-iRD"/>
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" id="WUT-N5-usW"/>
-                            <constraint firstItem="V2l-Q4-uTw" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="Xlz-xd-0Qf"/>
+                            <constraint firstItem="ORu-RS-4UJ" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="XUL-dc-N1i"/>
+                            <constraint firstItem="ORu-RS-4UJ" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="0.2" id="ZhK-rK-Jgw"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="0.3" id="aci-SY-YJy"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" multiplier="0.3" id="dwQ-G5-yf0"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="fAE-IN-8Aw"/>
-                            <constraint firstItem="V2l-Q4-uTw" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="0.2" id="fOh-Gx-ptf"/>
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="jTT-Jh-7D2"/>
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" id="pcc-o4-J3Q"/>
-                            <constraint firstItem="V2l-Q4-uTw" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" multiplier="1.6" id="u6g-al-5H2"/>
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="uKq-SA-tRb"/>
+                            <constraint firstItem="ORu-RS-4UJ" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" multiplier="1.6" id="uzq-Y7-t1D"/>
+                            <constraint firstItem="ORu-RS-4UJ" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="y4Q-UX-VrC"/>
                         </constraints>
                     </view>
                     <connections>

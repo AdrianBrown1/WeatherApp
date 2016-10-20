@@ -104,7 +104,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             view.clipsToBounds = false
             view.backgroundColor = .clear
         }
-        
+        // Bottom view added to array
         self.bottomWeatherViews.append(self.dayOneBottomView)
         self.bottomWeatherViews.append(self.dayTwoBottomView)
         self.bottomWeatherViews.append(self.dayThreeBottomView)
@@ -112,6 +112,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.bottomWeatherViews.append(self.dayFiveBottomView)
         self.bottomWeatherViews.append(self.daySixBottomView)
         self.bottomWeatherViews.append(self.daySevenBottomVew)
+    
+        //bottom view design change
+        for view in self.bottomWeatherViews {
+            
+            view.layer.cornerRadius = 10
+            view.layer.masksToBounds = true
+            view.layer.borderColor = UIColor.gray.cgColor
+            view.layer.borderWidth = 0
+            view.layer.contentsScale = UIScreen.main.scale
+            view.layer.shadowColor = UIColor.black.cgColor
+            view.layer.shadowOffset = CGSize.zero
+            view.layer.shadowRadius = 5.0
+            view.layer.shadowOpacity = 0.5
+            view.layer.masksToBounds = false
+            view.clipsToBounds = false
+            view.backgroundColor = .clear
+
+        }
+        
+        self.todayBottomView.layer.cornerRadius = 10
+        self.todayBottomView.layer.masksToBounds = true
+        self.todayBottomView.layer.borderColor = UIColor.gray.cgColor
+        self.todayBottomView.layer.borderWidth = 0
+        self.todayBottomView.layer.contentsScale = UIScreen.main.scale
+        self.todayBottomView.layer.shadowColor = UIColor.black.cgColor
+        self.todayBottomView.layer.shadowOffset = CGSize.zero
+        self.todayBottomView.layer.shadowRadius = 5.0
+        self.todayBottomView.layer.shadowOpacity = 0.5
+        self.todayBottomView.layer.masksToBounds = false
+        self.todayBottomView.clipsToBounds = false
+        self.todayBottomView.backgroundColor = .clear
         
         self.backgroundImage.backgroundColor = .clear
         

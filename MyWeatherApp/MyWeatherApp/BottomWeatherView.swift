@@ -48,7 +48,7 @@ class BottomWeatherView: UIView {
         contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        
+        contentView.backgroundColor = .clear
         
     }
     
@@ -56,7 +56,7 @@ class BottomWeatherView: UIView {
         // Date conversion
         let date = Date(timeIntervalSince1970: Double(self.currentWeather.date))
         let dayTimePeriodFormatter = DateFormatter()
-        dayTimePeriodFormatter.dateFormat = "EEEE"
+        dayTimePeriodFormatter.dateFormat = "E"
         let dateString = dayTimePeriodFormatter.string(from: date)
         self.dateLabel.text = dateString
         
