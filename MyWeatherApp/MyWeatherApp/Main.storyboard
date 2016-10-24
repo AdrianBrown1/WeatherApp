@@ -141,6 +141,7 @@
                         <outlet property="dayThreeView" destination="gk6-cD-h9x" id="LlR-ta-tFe"/>
                         <outlet property="dayTwoBottomView" destination="uYs-R4-CqN" id="AhG-j4-BpN"/>
                         <outlet property="dayTwoView" destination="94I-yy-bK2" id="dYa-R5-9cG"/>
+                        <outlet property="scrollView" destination="7hC-0J-ukE" id="7c5-ys-a0e"/>
                         <outlet property="todayBottomView" destination="etb-Pg-gRH" id="igH-Sn-vY0"/>
                         <outlet property="todayWeatherView" destination="eTU-0D-knI" id="PUv-6Q-zSM"/>
                     </connections>

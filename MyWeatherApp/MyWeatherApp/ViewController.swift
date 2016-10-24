@@ -9,10 +9,14 @@
 import UIKit
 import CoreLocation
 
+extension UIScrollView {
+    var currentPage:Int{
+        return Int((self.contentOffset.x+(0.5*self.frame.size.width))/self.frame.width)+1
+    }
+}
 
 
-
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewDelegate {
     
     
     var locationManager: CLLocationManager!
@@ -44,12 +48,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     //background Image
     @IBOutlet weak var backgroundImage: UIImageView!
+   // Weather ScrollView Cards
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        
         // coreLoaction Setup
         locationManager = CLLocationManager()
         locationManager.delegate = self;
@@ -64,6 +71,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let strlong = String(format: "%.4f",long!)
         self.lat = strlat
         self.long = strlong
+        
+        //scrollView setup
+        scrollView.delegate = self
         
         
         //View Cards
@@ -145,45 +155,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.todayBottomView.backgroundColor = .clear
         
         self.backgroundImage.backgroundColor = .clear
+    
+        // animate bottom view
+    
+            self.todayBottomView.backgroundColor = .white
+            self.todayBottomView.layer.shadowOpacity = 2
+        
+
         
         //Fetch Data
-        DispatchQueue.global(qos: .background).async {
-            
-            WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (errorDescription) in
-                
-                self.weatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.weatherArray)
-                self.weeklyWeatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
-                
-                //today's weather information
-                for weatherObject in self.weatherObjectsArray {
-                    //setting view cards
-                    let todaysWeather = self.todayWeatherView
-                    todaysWeather?.currentWeather = weatherObject
-                    //setting bottom view
-                    let bottomViewTodaysWeather = self.todayBottomView
-                    bottomViewTodaysWeather?.currentWeather = weatherObject
-                    
-                // this should be done in main thread vvv
-                 self.setbackgroundImage(icon: (todaysWeather?.currentWeather.icon)!)
-                }
-                // check on first object in array later
-                self.weeklyWeatherObjectsArray.remove(at: 0)
-                
-                // Setting
-                for (dayView, dayObject) in zip(self.weatherViews, self.weeklyWeatherObjectsArray) {
-                    
-                    let todaysView = dayView
-                    todaysView.currentWeeklyWeather = dayObject
-                }
-                
-                for (bottomDayView, dayObject) in zip(self.bottomWeatherViews, self.weeklyWeatherObjectsArray) {
-         
-                    let dailyBottomView = bottomDayView
-                    dailyBottomView.currentWeeklyWeather = dayObject
-    
-                }
-            }
-        }
+         fetchData()
+
+        
+        
         
     }
     // This function will set the background image to match Weather
@@ -205,7 +189,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         case "fog":
             self.backgroundImage.image = UIImage(named: "fogBackground.jpg")
         case "cloudy":
-            self.backgroundImage.image = UIImage(named: "cloudBackground.jog")
+            self.backgroundImage.image = UIImage(named: "cloudBackground.jpg")
         case "partly-cloudy-day":
             self.backgroundImage.image = UIImage(named: "Sunny-SkyBackground.jpg")
         case "partly-cloudy-night":
@@ -215,7 +199,163 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
    
+    func fetchData() {
+        DispatchQueue.global(qos: .background).async {
+            
+            WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (errorDescription) in
+                
+                self.weatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.weatherArray)
+                self.weeklyWeatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
+                
+                //today's weather information
+                for weatherObject in self.weatherObjectsArray {
+                    //setting view cards
+                    let todaysWeather = self.todayWeatherView
+                    todaysWeather?.currentWeather = weatherObject
+                    //setting bottom view
+                    let bottomViewTodaysWeather = self.todayBottomView
+                    bottomViewTodaysWeather?.currentWeather = weatherObject
+                    
+                    // this should be done in main thread vvv
+                    self.setbackgroundImage(icon: (todaysWeather?.currentWeather.icon)!)
+                }
+                // check on first object in array later
+                self.weeklyWeatherObjectsArray.remove(at: 0)
+                
+                // Setting
+                for (dayView, dayObject) in zip(self.weatherViews, self.weeklyWeatherObjectsArray) {
+                    
+                    let todaysView = dayView
+                    todaysView.currentWeeklyWeather = dayObject
+                }
+                
+                for (bottomDayView, dayObject) in zip(self.bottomWeatherViews, self.weeklyWeatherObjectsArray) {
+                    
+                    let dailyBottomView = bottomDayView
+                    dailyBottomView.currentWeeklyWeather = dayObject
+                    
+                }
+            }
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
+        var arrayOfViews: [UIView] = []
+        arrayOfViews.append(self.todayBottomView)
+        arrayOfViews.append(self.dayOneBottomView)
+        arrayOfViews.append(self.dayTwoBottomView)
+        arrayOfViews.append(self.dayThreeBottomView)
+        arrayOfViews.append(self.dayFourBottomView)
+        arrayOfViews.append(self.dayFiveBottomView)
+        arrayOfViews.append(self.daySixBottomView)
+        arrayOfViews.append(self.daySevenBottomVew)
+        
+        for view in arrayOfViews {
+            view.backgroundColor = .clear
+            view.layer.shadowOpacity = 0.5
+        }
+        
+        
+        switch scrollView.currentPage {
+        case 1:
+            UIView.animate(withDuration: 0.2, animations: {
+                self.todayBottomView.backgroundColor = .white
+                self.todayBottomView.layer.shadowOpacity = 1
+            })
+
+        case 2:
+            print("I am page 2")
+            UIView.animate(withDuration: 0.2, animations: {
+                
+                for view in arrayOfViews {
+                    view.backgroundColor = .clear
+                    
+                }
+                self.dayOneBottomView.backgroundColor = .white
+                self.dayOneBottomView.layer.shadowOpacity = 1
+                
+            })
+        case 3:
+            print("I am page 3")
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                
+                for view in arrayOfViews {
+                    view.backgroundColor = .clear
+                    
+                }
+                self.dayTwoBottomView.backgroundColor = .white
+                self.dayTwoBottomView.layer.shadowOpacity = 1
+                
+            })
+            
+        case 4:
+            print("I am page 4 ")
+            UIView.animate(withDuration: 0.2, animations: {
+                
+                for view in arrayOfViews {
+                    view.backgroundColor = .clear
+                    
+                }
+                self.dayThreeBottomView.backgroundColor = .white
+                self.dayThreeBottomView.layer.shadowOpacity = 1
+                
+            })
+        case 5:
+            print("I am page 5")
+            UIView.animate(withDuration: 0.2, animations: {
+                
+                for view in arrayOfViews {
+                    view.backgroundColor = .clear
+                    
+                }
+                self.dayFourBottomView.backgroundColor = .white
+                self.dayFourBottomView.layer.shadowOpacity = 1
+                
+            })
+        case 6:
+            print("I am page 6")
+            UIView.animate(withDuration: 0.2, animations: {
+                
+                for view in arrayOfViews {
+                    view.backgroundColor = .clear
+                    
+                }
+                self.dayFiveBottomView.backgroundColor = .white
+                self.dayFiveBottomView.layer.shadowOpacity = 1
+                
+            })
+        case 7:
+            print("i am page 7")
+            UIView.animate(withDuration: 0.2, animations: {
+                
+                for view in arrayOfViews {
+                    view.backgroundColor = .clear
+                    
+                }
+                self.daySixBottomView.backgroundColor = .white
+                self.daySixBottomView.layer.shadowOpacity = 1
+                
+            })
+        case 8:
+            print("I am page 8")
+            UIView.animate(withDuration: 0.2, animations: {
+                
+                for view in arrayOfViews {
+                    view.backgroundColor = .clear
+                    
+                }
+                self.daySevenBottomVew.backgroundColor = .white
+                self.daySevenBottomVew.layer.shadowOpacity = 1
+                
+            })
+        default:
+            print("I am the default case")
+        }
+    }
+
+    
 }
 
 
