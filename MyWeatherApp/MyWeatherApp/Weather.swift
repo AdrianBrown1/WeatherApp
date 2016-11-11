@@ -12,19 +12,11 @@ import SwiftyJSON.Swift
 
 class Weather {
     
-//    enum Day {
-//        case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-//
-//    }
-    
-//    let day: Day
     var date: Int
     var temperature: Double
     var humidity: String
     var summary: String
     var icon: String
-   // var maxTemp: String
-    //var minTemp: String
     
     init(date: Int, temperature: Double, humidity: String, summary: String,icon: String) {
         

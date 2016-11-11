@@ -16,6 +16,7 @@ extension UIScrollView {
 }
 
 
+
 class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewDelegate {
     
     
@@ -35,7 +36,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     @IBOutlet weak var daySixView: WeatherView!
     @IBOutlet weak var daySevenView: WeatherView!
     
-    //BottomWeatherViews 
+    //BottomWeatherViews
     @IBOutlet weak var todayBottomView: BottomWeatherView!
     @IBOutlet weak var dayOneBottomView: BottomWeatherView!
     @IBOutlet weak var dayTwoBottomView: BottomWeatherView!
@@ -45,10 +46,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     @IBOutlet weak var daySixBottomView: BottomWeatherView!
     @IBOutlet weak var daySevenBottomVew: BottomWeatherView!
     var bottomWeatherViews: [BottomWeatherView] = []
-
+    
     //background Image
     @IBOutlet weak var backgroundImage: UIImageView!
-   // Weather ScrollView Cards
+    // Weather ScrollView Cards
     @IBOutlet weak var scrollView: UIScrollView!
     
 
@@ -56,7 +57,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         // coreLoaction Setup
         locationManager = CLLocationManager()
         locationManager.delegate = self;
@@ -122,7 +123,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         self.bottomWeatherViews.append(self.dayFiveBottomView)
         self.bottomWeatherViews.append(self.daySixBottomView)
         self.bottomWeatherViews.append(self.daySevenBottomVew)
-    
+        
         //bottom view design change
         for view in self.bottomWeatherViews {
             
@@ -138,7 +139,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
             view.layer.masksToBounds = false
             view.clipsToBounds = false
             view.backgroundColor = .clear
-
+            
         }
         
         self.todayBottomView.layer.cornerRadius = 10
@@ -155,20 +156,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         self.todayBottomView.backgroundColor = .clear
         
         self.backgroundImage.backgroundColor = .clear
-    
-        // animate bottom view
-    
-            self.todayBottomView.backgroundColor = .white
-            self.todayBottomView.layer.shadowOpacity = 2
         
-
+        // animate bottom view
+        self.todayBottomView.backgroundColor = .white
+        self.todayBottomView.layer.shadowOpacity = 2
         
         //Fetch Data
-         fetchData()
-
-        
-        
-        
+        fetchData()
+ 
     }
     // This function will set the background image to match Weather
     func setbackgroundImage(icon: String) {
@@ -198,11 +193,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
             print("There is a missing case")
         }
     }
-   
+    
     func fetchData() {
-        DispatchQueue.global(qos: .background).async {
+        
+        WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (success, error) in
             
-            WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (errorDescription) in
+            if success {
                 
                 self.weatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.weatherArray)
                 self.weeklyWeatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
@@ -216,29 +212,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                     let bottomViewTodaysWeather = self.todayBottomView
                     bottomViewTodaysWeather?.currentWeather = weatherObject
                     
-                    // this should be done in main thread vvv
-                    self.setbackgroundImage(icon: (todaysWeather?.currentWeather.icon)!)
+                    DispatchQueue.main.async {
+                        self.setbackgroundImage(icon: (todaysWeather?.currentWeather.icon)!)
+                    }
                 }
-                // check on first object in array later
-                self.weeklyWeatherObjectsArray.remove(at: 0)
                 
+                // check on first object in array later
+                  self.weeklyWeatherObjectsArray.remove(at: 0)
                 // Setting
                 for (dayView, dayObject) in zip(self.weatherViews, self.weeklyWeatherObjectsArray) {
-                    
                     let todaysView = dayView
                     todaysView.currentWeeklyWeather = dayObject
                 }
-                
                 for (bottomDayView, dayObject) in zip(self.bottomWeatherViews, self.weeklyWeatherObjectsArray) {
-                    
                     let dailyBottomView = bottomDayView
                     dailyBottomView.currentWeeklyWeather = dayObject
-                    
                 }
+                
+                
+            } else {
+                // show labels saying internet is down !
+                
+                
+                
             }
         }
     }
-    
+
+    // Bottom view highlighting based on scroll
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         var arrayOfViews: [UIView] = []
@@ -256,106 +257,74 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
             view.layer.shadowOpacity = 0.5
         }
         
-        
         switch scrollView.currentPage {
         case 1:
             UIView.animate(withDuration: 0.2, animations: {
                 self.todayBottomView.backgroundColor = .white
                 self.todayBottomView.layer.shadowOpacity = 1
             })
-
         case 2:
-            print("I am page 2")
             UIView.animate(withDuration: 0.2, animations: {
-                
                 for view in arrayOfViews {
                     view.backgroundColor = .clear
-                    
                 }
                 self.dayOneBottomView.backgroundColor = .white
                 self.dayOneBottomView.layer.shadowOpacity = 1
-                
             })
         case 3:
-            print("I am page 3")
-            
             UIView.animate(withDuration: 0.2, animations: {
-                
                 for view in arrayOfViews {
                     view.backgroundColor = .clear
-                    
                 }
                 self.dayTwoBottomView.backgroundColor = .white
                 self.dayTwoBottomView.layer.shadowOpacity = 1
-                
             })
             
         case 4:
-            print("I am page 4 ")
             UIView.animate(withDuration: 0.2, animations: {
-                
                 for view in arrayOfViews {
                     view.backgroundColor = .clear
-                    
                 }
                 self.dayThreeBottomView.backgroundColor = .white
                 self.dayThreeBottomView.layer.shadowOpacity = 1
-                
             })
         case 5:
-            print("I am page 5")
             UIView.animate(withDuration: 0.2, animations: {
-                
                 for view in arrayOfViews {
                     view.backgroundColor = .clear
-                    
                 }
                 self.dayFourBottomView.backgroundColor = .white
                 self.dayFourBottomView.layer.shadowOpacity = 1
-                
             })
         case 6:
-            print("I am page 6")
             UIView.animate(withDuration: 0.2, animations: {
-                
                 for view in arrayOfViews {
                     view.backgroundColor = .clear
-                    
                 }
                 self.dayFiveBottomView.backgroundColor = .white
                 self.dayFiveBottomView.layer.shadowOpacity = 1
-                
             })
         case 7:
-            print("i am page 7")
             UIView.animate(withDuration: 0.2, animations: {
-                
                 for view in arrayOfViews {
                     view.backgroundColor = .clear
-                    
                 }
                 self.daySixBottomView.backgroundColor = .white
                 self.daySixBottomView.layer.shadowOpacity = 1
-                
             })
         case 8:
-            print("I am page 8")
             UIView.animate(withDuration: 0.2, animations: {
-                
                 for view in arrayOfViews {
                     view.backgroundColor = .clear
-                    
                 }
                 self.daySevenBottomVew.backgroundColor = .white
                 self.daySevenBottomVew.layer.shadowOpacity = 1
-                
             })
         default:
             print("I am the default case")
         }
     }
-
-    
+  
 }
 
 

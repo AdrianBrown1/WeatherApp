@@ -66,7 +66,7 @@ class WeatherView: UIView {
         // Temp  & Humidity conversion
         let maxTemp = Int(round(self.currentWeeklyWeather.maxTemp))
         let minTemp = Int(round(self.currentWeeklyWeather.minTemp))
-        self.tempatureLabel.text = String("Max:\(maxTemp) \n Min:\(minTemp)℉")
+        self.tempatureLabel.text = String("Max: \(maxTemp)℉ \n Min: \(minTemp)℉")
         let humidity = Double(self.currentWeeklyWeather.humidity)
         let humidityFormat = Int(round(humidity!))
         self.humidityLabel.text = String("Humidity: \(humidityFormat)%")
@@ -82,7 +82,6 @@ class WeatherView: UIView {
         // Date conversion
         let date = Date(timeIntervalSince1970: Double(self.currentWeather.date))
         let dayTimePeriodFormatter = DateFormatter()
-//      dayTimePeriodFormatter.dateFormat = "MMM dd YYYY"
         dayTimePeriodFormatter.dateFormat = "EEEE"
         let dateString = dayTimePeriodFormatter.string(from: date)
         self.dateLabel.text = dateString

@@ -14,18 +14,20 @@ import SwiftyJSON.Swift
 class WeatherDataStore {
     
     static let sharedDataStore = WeatherDataStore()
+    static let basicURL = "https://api.forecast.io/forecast/21161b1db326da35c6d6a5b09cc36782/"
     var weatherArray: [Weather] = []
     var WeeklyWeatherArray: [WeeklyWeather] = []
     
     
-    func fetchweatherData(lat: String, long: String, completion:@escaping (_: NSString?)-> ()){
+    func fetchweatherData(lat: String, long: String, completion:@escaping (Bool, String)-> ()){
         
+        let newURL = "\(WeatherDataStore.basicURL)\(lat),\(long)"
         
-        Alamofire.request("https://api.forecast.io/forecast/21161b1db326da35c6d6a5b09cc36782/\(lat),\(long)")
-            .responseJSON { response in
-                print("JSON Request Worked!")
-                                
-                if let rawJSON = response.result.value {
+        Alamofire.request(newURL).responseJSON { [unowned self] response in
+                
+                DispatchQueue.main.async {
+
+                    guard let rawJSON = response.result.value else { completion(false, "No value from response."); return }
                     
                     let json = JSON(rawJSON)
                     
@@ -37,15 +39,11 @@ class WeatherDataStore {
                     }else {
                         print(" I cant add more to this array :( ")
                     }
-                    
-                    
-                    
                     // This is the WeeklyWeather objects
                     let thisWeeksWeather = json["daily"]["data"]
                     var oneDayOfTheWeek: WeeklyWeather
                     
                     for (_, value) in thisWeeksWeather {
-                        //print("\(key) ----- \(value)")
                         oneDayOfTheWeek = WeeklyWeather.init(json: value)
                         if self.WeeklyWeatherArray.count < 8 {
                             self.WeeklyWeatherArray.append(oneDayOfTheWeek)
@@ -53,20 +51,11 @@ class WeatherDataStore {
                             print(" I cant add more to this array either :( ")
                         }
                     }
-                    completion(_: nil)
-                }else {
-                    print("Something went wrong!")
                     
-                    completion(_: "oh nooo")
+                    completion(true, "n/a")
                 }
         }
-
         
     }
-    
-
-    
-    
-
     
 }
