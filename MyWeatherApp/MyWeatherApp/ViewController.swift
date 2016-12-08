@@ -65,14 +65,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.requestWhenInUseAuthorization()
-        let location = locationManager.location
-        let long = location?.coordinate.longitude
-        let lat = location?.coordinate.latitude
-        let strlat = String(format: "%.4f", lat!)
-        let strlong = String(format: "%.4f",long!)
-        self.lat = strlat
-        self.long = strlong
         
+        let location = locationManager.location
+        
+       
+       
         //scrollView setup
         scrollView.delegate = self
         
@@ -161,10 +158,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         self.todayBottomView.backgroundColor = .white
         self.todayBottomView.layer.shadowOpacity = 2
         
-        //Fetch Data
-        fetchData()
- 
+
     }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    
+                    let location = locationManager.location
+                    
+                    if  let long = location?.coordinate.longitude {
+                        let strlong = String(format: "%.4f",long)
+                        self.long = strlong
+                    }
+                    if let lat = location?.coordinate.latitude {
+                        let strlat = String(format: "%.4f", lat)
+                        self.lat = strlat
+                    }
+
+                    
+                    fetchData()
+                }
+            }
+        }
+    }
+    
+    
+    
+    
     // This function will set the background image to match Weather
     func setbackgroundImage(icon: String) {
         
@@ -195,6 +217,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     }
     
     func fetchData() {
+        
+        print("I am the lat on first run ! \(self.lat) \n\n\n\n")
+        
+        print("I am the long on first run ! \(self.long) \n\n\n\n")
+
         
         WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (success, error) in
             
@@ -233,6 +260,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
             } else {
                 // show labels saying internet is down !
                 
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Load"), object: nil)
                 
                 
             }

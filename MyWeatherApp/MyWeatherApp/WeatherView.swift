@@ -75,6 +75,13 @@ class WeatherView: UIView {
 
     }
     
+    
+     func displayErrorLabel(_ notification: Notification) {
+        
+        print("I need to make this work !!! \n\n\n\n\n")
+        
+    }
+    
     func updateWeather() {
         print("I am updating the weather")
         self.summaryLabel.text = "\(self.currentWeather.summary)"
