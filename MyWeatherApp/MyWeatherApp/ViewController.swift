@@ -10,7 +10,8 @@ import UIKit
 import CoreLocation
 
 extension UIScrollView {
-    var currentPage:Int{
+   
+    var currentPage: Int {
         return Int((self.contentOffset.x+(0.5*self.frame.size.width))/self.frame.width)+1
     }
 }
@@ -62,11 +63,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         locationManager = CLLocationManager()
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+//        locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.requestWhenInUseAuthorization()
         
-        let location = locationManager.location
+        _ = locationManager.location
         
        
        
@@ -159,6 +160,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         self.todayBottomView.layer.shadowOpacity = 2
         
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(AppDelegate.applicationDidBecomeActive(_:)),
+            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            object: nil)
+        
+
+        
+
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -185,7 +195,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     }
     
     
-    
+    func applicationDidBecomeActive(_ notification: NSNotification) {
+        
+        fetchData()
+        scrollToBeginning()
+        
+    }
     
     // This function will set the background image to match Weather
     func setbackgroundImage(icon: String) {
@@ -217,15 +232,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     }
     
     func fetchData() {
-        
-        print("I am the lat on first run ! \(self.lat) \n\n\n\n")
-        
-        print("I am the long on first run ! \(self.long) \n\n\n\n")
+                
+        self.scrollView.setContentOffset(CGPoint(x: 1, y: 1), animated: true)
 
-        
         WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (success, error) in
             
             if success {
+                
+                self.weatherObjectsArray.removeAll()
+                self.weeklyWeatherObjectsArray.removeAll()
+                
                 
                 self.weatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.weatherArray)
                 self.weeklyWeatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
@@ -258,13 +274,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 
                 
             } else {
-                // show labels saying internet is down !
                 
+                // show labels saying internet is down !
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Load"), object: nil)
                 
                 
             }
         }
+    }
+    
+    func scrollToBeginning() {
+        
+        var arrayOfViews: [UIView] = []
+        arrayOfViews.append(self.todayBottomView)
+        arrayOfViews.append(self.dayOneBottomView)
+        arrayOfViews.append(self.dayTwoBottomView)
+        arrayOfViews.append(self.dayThreeBottomView)
+        arrayOfViews.append(self.dayFourBottomView)
+        arrayOfViews.append(self.dayFiveBottomView)
+        arrayOfViews.append(self.daySixBottomView)
+        arrayOfViews.append(self.daySevenBottomVew)
+        
+        for view in arrayOfViews {
+            view.backgroundColor = .clear
+            view.layer.shadowOpacity = 0.5
+        }
+        
+        UIView.animate(withDuration: 0.1, animations: {
+            self.todayBottomView.backgroundColor = .white
+            self.todayBottomView.layer.shadowOpacity = 1
+        })
+        
     }
 
     // Bottom view highlighting based on scroll
@@ -352,7 +392,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
             print("I am the default case")
         }
     }
-  
+    
+    // Does not let app rotate
+//    override func shouldAutorotate() -> Bool {
+//        return false
+//    }
+//    
+//    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+//        return UIInterfaceOrientationMask.portrait
+//    }
+//  
 }
 
 
