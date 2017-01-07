@@ -28,7 +28,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCS-Md-eki" userLabel="Tempature">
-                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -57,7 +57,7 @@
                 <constraint firstItem="hFz-ow-2Sg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.5" id="COT-6I-XvK"/>
                 <constraint firstItem="ruB-FY-UzV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.4" id="Ep5-lB-lnu"/>
                 <constraint firstItem="hFz-ow-2Sg" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.3" id="EuL-Y3-yta"/>
-                <constraint firstItem="hFz-ow-2Sg" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.4" id="H3T-LQ-UUn"/>
+                <constraint firstItem="hFz-ow-2Sg" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="H3T-LQ-UUn"/>
                 <constraint firstItem="xCS-Md-eki" firstAttribute="width" secondItem="hFz-ow-2Sg" secondAttribute="width" id="LDZ-A4-4fZ"/>
                 <constraint firstItem="xCS-Md-eki" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NHI-Bx-qRR"/>
                 <constraint firstItem="fcs-zR-JgX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PTg-bj-68Q"/>
@@ -66,7 +66,7 @@
                 <constraint firstItem="fcs-zR-JgX" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="no2-iT-bjh"/>
                 <constraint firstItem="xCS-Md-eki" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.5" id="slD-rl-LIz"/>
                 <constraint firstItem="ruB-FY-UzV" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.8" id="ugR-DM-TG1"/>
-                <constraint firstItem="qTm-wY-2J2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="vaG-UH-V4k"/>
+                <constraint firstItem="qTm-wY-2J2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.3" id="vaG-UH-V4k"/>
                 <constraint firstItem="ruB-FY-UzV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.8" id="w0o-Vx-f5d"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

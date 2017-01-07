@@ -10,16 +10,12 @@ import UIKit
 import CoreLocation
 
 extension UIScrollView {
-   
     var currentPage: Int {
         return Int((self.contentOffset.x+(0.5*self.frame.size.width))/self.frame.width)+1
     }
 }
 
-
-
 class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewDelegate {
-    
     
     var locationManager: CLLocationManager!
     var lat: String = ""
@@ -27,6 +23,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     var weatherObjectsArray: [Weather] = []
     var weeklyWeatherObjectsArray: [WeeklyWeather] = []
     var weatherViews : [WeatherView] = []
+    
+    
     //WeatherViews
     @IBOutlet weak var todayWeatherView: WeatherView!
     @IBOutlet weak var dayOneView: WeatherView!
@@ -53,7 +51,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     // Weather ScrollView Cards
     @IBOutlet weak var scrollView: UIScrollView!
     
-
     
     
     override func viewDidLoad() {
@@ -63,17 +60,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         locationManager = CLLocationManager()
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestAlwaysAuthorization()
+        locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.requestWhenInUseAuthorization()
         
         _ = locationManager.location
         
-       
-       
         //scrollView setup
         scrollView.delegate = self
-        
         
         //View Cards
         self.todayWeatherView.layer.cornerRadius = 10
@@ -113,6 +107,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
             view.clipsToBounds = false
             view.backgroundColor = .clear
         }
+        
         // Bottom view added to array
         self.bottomWeatherViews.append(self.dayOneBottomView)
         self.bottomWeatherViews.append(self.dayTwoBottomView)
@@ -159,18 +154,83 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         self.todayBottomView.backgroundColor = .white
         self.todayBottomView.layer.shadowOpacity = 2
         
-
+        // Notification for data refresh
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(AppDelegate.applicationDidBecomeActive(_:)),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil)
         
-
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
         
-
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
     }
     
+    // Gesture swipe
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                print("Swiped right")
+                
+                self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+                var contentOffSetAsDouble: Double? = nil
+                var contentOffSet: CGPoint? = nil
+                
+                var contentConvertedToInt: Int = 0
+                contentOffSetAsDouble = Double(self.scrollView.contentOffset.x + 414)
+                print(contentOffSetAsDouble!)
+                
+                contentOffSet = CGPoint(x: contentOffSetAsDouble!, y: 0)
+                self.scrollView.setContentOffset(contentOffSet!, animated: true)
+                
+            
+            case UISwipeGestureRecognizerDirection.left:
+                print("Swiped left")
+                
+                self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+                var contentOffSetAsDouble: Double? = nil
+                var contentOffSet: CGPoint? = nil
+                
+                var contentConvertedToInt: Int = 0
+                contentOffSetAsDouble = Double(self.scrollView.contentOffset.x - 414)
+                print(contentOffSetAsDouble!)
+                
+                contentOffSet = CGPoint(x: contentOffSetAsDouble!, y: 0)
+                self.scrollView.setContentOffset(contentOffSet!, animated: true)
+            default:
+                break
+            }
+        }
+    }
+    
+
+    
+    
+    
+    
+    
+    // Swipe Gesture set up
+    func SwipeRight() {
+        // make swipe actually swipe scrollview
+
+
+        
+    }
+    
+    func swipeLeft() {
+        
+    }
+    
+    
+    
+    
+    
+    // coreLocation stuff
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
@@ -186,7 +246,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                         let strlat = String(format: "%.4f", lat)
                         self.lat = strlat
                     }
-
                     
                     fetchData()
                 }
@@ -232,17 +291,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     }
     
     func fetchData() {
-                
+        
         self.scrollView.setContentOffset(CGPoint(x: 1, y: 1), animated: true)
-
+        
         WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (success, error) in
             
             if success {
                 
                 self.weatherObjectsArray.removeAll()
                 self.weeklyWeatherObjectsArray.removeAll()
-                
-                
                 self.weatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.weatherArray)
                 self.weeklyWeatherObjectsArray.append(contentsOf: WeatherDataStore.sharedDataStore.WeeklyWeatherArray)
                 
@@ -257,11 +314,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                     
                     DispatchQueue.main.async {
                         self.setbackgroundImage(icon: (todaysWeather?.currentWeather.icon)!)
+                        
                     }
                 }
                 
                 // check on first object in array later
-                  self.weeklyWeatherObjectsArray.remove(at: 0)
+                self.weeklyWeatherObjectsArray.remove(at: 0)
                 // Setting
                 for (dayView, dayObject) in zip(self.weatherViews, self.weeklyWeatherObjectsArray) {
                     let todaysView = dayView
@@ -277,7 +335,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 
                 // show labels saying internet is down !
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Load"), object: nil)
-                
                 
             }
         }
@@ -299,14 +356,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
             view.backgroundColor = .clear
             view.layer.shadowOpacity = 0.5
         }
-        
         UIView.animate(withDuration: 0.1, animations: {
             self.todayBottomView.backgroundColor = .white
             self.todayBottomView.layer.shadowOpacity = 1
         })
         
     }
-
+    
     // Bottom view highlighting based on scroll
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
@@ -393,15 +449,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         }
     }
     
-    // Does not let app rotate
-//    override func shouldAutorotate() -> Bool {
-//        return false
-//    }
-//    
-//    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-//        return UIInterfaceOrientationMask.portrait
-//    }
-//  
 }
 
 

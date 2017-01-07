@@ -28,7 +28,6 @@ class WeatherDataStore {
                 DispatchQueue.main.async {
 
                     guard let rawJSON = response.result.value else { completion(false, "No value from response."); return }
-                    
                     let json = JSON(rawJSON)
                     
                     // This Weather object is Today's Weather
@@ -37,7 +36,7 @@ class WeatherDataStore {
                     if self.weatherArray.count < 1 {
                         self.weatherArray.append(todaysWeather)
                     }else {
-                        print(" I cant add more to this array :( ")
+                        print(" I cant add more to this array")
                     }
                     // This is the WeeklyWeather objects
                     let thisWeeksWeather = json["daily"]["data"]
@@ -48,7 +47,7 @@ class WeatherDataStore {
                         if self.WeeklyWeatherArray.count < 8 {
                             self.WeeklyWeatherArray.append(oneDayOfTheWeek)
                         }else {
-                            print(" I cant add more to this array either :( ")
+                            print(" I cant add more to this array either")
                         }
                     }
                     

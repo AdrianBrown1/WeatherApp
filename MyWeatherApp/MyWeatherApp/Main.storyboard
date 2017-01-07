@@ -1,40 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="l8o-ux-fbV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="l8o-ux-fbV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Set Up View Controller-->
-        <scene sceneID="Ppy-ay-24R">
-            <objects>
-                <viewController id="FJn-uc-7Q4" customClass="setUpViewController" customModule="MyWeatherApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aDC-HL-I0f"/>
-                        <viewControllerLayoutGuide type="bottom" id="H2a-2M-Knx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YhF-EO-gpj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-q7-amo">
-                                <frame key="frameInset" minX="164" minY="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="FJn-uc-7Q4" eventType="touchUpInside" id="iPu-UY-HIl"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AKj-Xq-KcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1286" y="206"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="qiT-Nf-gZM">
             <objects>
@@ -48,34 +23,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Vo-OA-sbd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7hC-0J-ukE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2GR-v8-1g3" userLabel="contentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="3000" height="200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-0D-knI" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tb4-9F-D4v" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="375" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94I-yy-bK2" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="750" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gk6-cD-h9x" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="1125" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBt-nt-LZ2" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="1500" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eW-C2-ThQ" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="1875" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSI-ax-Z1d" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="2250" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAr-9g-kI3" customClass="WeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="2625" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -99,31 +86,41 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORu-RS-4UJ">
+                                <rect key="frame" x="0.0" y="467" width="375" height="133.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V2l-Q4-uTw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etb-Pg-gRH" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="47" height="133.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hr7-Jm-FQS" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="47" y="0.0" width="47" height="133.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYs-R4-CqN" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="94" y="0.0" width="46.5" height="133.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUx-ze-qaU" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="140.5" y="0.0" width="47" height="133.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWR-mR-Go9" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="187.5" y="0.0" width="47" height="133.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tt-ar-kC6" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="234.5" y="0.0" width="47" height="133.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDL-4n-gY1" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="281.5" y="0.0" width="46.5" height="133.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLt-fG-DaN" customClass="BottomWeatherView" customModule="MyWeatherApp" customModuleProvider="target">
+                                                <rect key="frame" x="328" y="0.0" width="47" height="133.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -143,7 +140,6 @@
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" id="WUT-N5-usW"/>
                             <constraint firstItem="ORu-RS-4UJ" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="XUL-dc-N1i"/>
                             <constraint firstItem="ORu-RS-4UJ" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="0.2" id="ZhK-rK-Jgw"/>
-                            <constraint firstItem="7hC-0J-ukE" firstAttribute="height" secondItem="pnu-yT-msV" secondAttribute="height" multiplier="0.3" id="aci-SY-YJy"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="centerY" secondItem="pnu-yT-msV" secondAttribute="centerY" multiplier="0.3" id="dwQ-G5-yf0"/>
                             <constraint firstItem="7hC-0J-ukE" firstAttribute="centerX" secondItem="pnu-yT-msV" secondAttribute="centerX" id="fAE-IN-8Aw"/>
                             <constraint firstItem="4Vo-OA-sbd" firstAttribute="width" secondItem="pnu-yT-msV" secondAttribute="width" id="jTT-Jh-7D2"/>
@@ -154,7 +150,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backgroundImage" destination="4Vo-OA-sbd" id="tMj-lZ-mpw"/>
+                        <outlet property="backgroundImage" destination="4Vo-OA-sbd" id="yi3-G8-AID"/>
                         <outlet property="dayFiveBottomView" destination="5tt-ar-kC6" id="UWk-Jp-DaW"/>
                         <outlet property="dayFiveView" destination="5eW-C2-ThQ" id="BFC-kN-XZn"/>
                         <outlet property="dayFourBottomView" destination="kWR-mR-Go9" id="u5H-yg-OKd"/>
