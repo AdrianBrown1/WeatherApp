@@ -168,6 +168,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
+        
+        print(self.scrollView.contentOffset.x)
+        
     }
     
     // Gesture swipe
@@ -177,58 +180,76 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
             case UISwipeGestureRecognizerDirection.right:
                 print("Swiped right")
                 
-                self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-                var contentOffSetAsDouble: Double? = nil
-                var contentOffSet: CGPoint? = nil
+                // grab content offset X & add it to current content offset to move over by one.
                 
-                var contentConvertedToInt: Int = 0
-                contentOffSetAsDouble = Double(self.scrollView.contentOffset.x + 414)
-                print(contentOffSetAsDouble!)
+                let contentSizeWidth: Double = Double(self.scrollView.contentSize.width)
                 
-                contentOffSet = CGPoint(x: contentOffSetAsDouble!, y: 0)
-                self.scrollView.setContentOffset(contentOffSet!, animated: true)
+                let weatherObjects: Double = Double(self.weeklyWeatherObjectsArray.count + 1)
                 
-            
+                let contentOffSetDouble: Double = Double( contentSizeWidth / weatherObjects)
+                
+                let currentContentOffset: Double = Double(self.scrollView.contentOffset.x)
+        
+                
+                print("the current content offset is \(currentContentOffset)")
+                
+
+                let contentToChange: Double = currentContentOffset - contentOffSetDouble
+                
+                
+                let contentOffSet: CGPoint = CGPoint(x: contentToChange, y: 0)
+                print("the content offset is \(contentOffSet)")
+                
+                self.scrollView.setContentOffset(contentOffSet, animated: true)
+                
+                
             case UISwipeGestureRecognizerDirection.left:
                 print("Swiped left")
                 
-                self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-                var contentOffSetAsDouble: Double? = nil
-                var contentOffSet: CGPoint? = nil
                 
-                var contentConvertedToInt: Int = 0
-                contentOffSetAsDouble = Double(self.scrollView.contentOffset.x - 414)
-                print(contentOffSetAsDouble!)
                 
-                contentOffSet = CGPoint(x: contentOffSetAsDouble!, y: 0)
-                self.scrollView.setContentOffset(contentOffSet!, animated: true)
+                let contentSizeWidth: Double = Double(self.scrollView.contentSize.width)
+                
+                let weatherObjects: Double = Double(self.weeklyWeatherObjectsArray.count + 1)
+                
+                let contentOffSetDouble: Double = Double( contentSizeWidth / weatherObjects)
+                
+                let currentContentOffset: Double = Double(self.scrollView.contentOffset.x)
+                
+                print(contentSizeWidth)
+                
+                print("the current content offset is \(currentContentOffset)")
+                
+                if currentContentOffset == 0.0 {
+                    
+                                        let contentToChange: Double = currentContentOffset + contentOffSetDouble
+                    
+                    
+                    let contentOffSet: CGPoint = CGPoint(x: contentToChange, y: 0)
+                    print("the content offset is \(contentOffSet)")
+                    
+                    self.scrollView.setContentOffset(contentOffSet, animated: true)
+
+                }
+                
+                
+                
+               
+                
+//                self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+//                var contentOffSetAsDouble: Double? = nil
+//                var contentOffSet: CGPoint? = nil
+//                
+//                contentOffSetAsDouble = Double(self.scrollView.contentOffset.x + 415)
+//                print(contentOffSetAsDouble!)
+//                
+//                contentOffSet = CGPoint(x: contentOffSetAsDouble!, y: 0)
+//                self.scrollView.setContentOffset(contentOffSet!, animated: true)
             default:
                 break
             }
         }
     }
-    
-
-    
-    
-    
-    
-    
-    // Swipe Gesture set up
-    func SwipeRight() {
-        // make swipe actually swipe scrollview
-
-
-        
-    }
-    
-    func swipeLeft() {
-        
-    }
-    
-    
-    
-    
     
     // coreLocation stuff
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -292,7 +313,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
     
     func fetchData() {
         
-        self.scrollView.setContentOffset(CGPoint(x: 1, y: 1), animated: true)
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         
         WeatherDataStore.sharedDataStore.fetchweatherData(lat: self.lat, long: self.long) { (success, error) in
             
@@ -329,13 +350,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                     let dailyBottomView = bottomDayView
                     dailyBottomView.currentWeeklyWeather = dayObject
                 }
-                
-                
             } else {
                 
                 // show labels saying internet is down !
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Load"), object: nil)
-                
             }
         }
     }
