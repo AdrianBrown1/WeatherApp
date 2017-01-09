@@ -147,8 +147,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         self.todayBottomView.layer.masksToBounds = false
         self.todayBottomView.clipsToBounds = false
         self.todayBottomView.backgroundColor = .clear
-        
         self.backgroundImage.backgroundColor = .clear
+        
+        scrollViewDidEndDecelerating(self.scrollView)
         
         // animate bottom view
         self.todayBottomView.backgroundColor = .white
@@ -169,8 +170,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
         
-        print(self.scrollView.contentOffset.x)
-        
     }
     
     // Gesture swipe
@@ -178,73 +177,44 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.right:
-                print("Swiped right")
-                
-                // grab content offset X & add it to current content offset to move over by one.
-                
-                let contentSizeWidth: Double = Double(self.scrollView.contentSize.width)
-                
-                let weatherObjects: Double = Double(self.weeklyWeatherObjectsArray.count + 1)
-                
-                let contentOffSetDouble: Double = Double( contentSizeWidth / weatherObjects)
-                
-                let currentContentOffset: Double = Double(self.scrollView.contentOffset.x)
-        
-                
-                print("the current content offset is \(currentContentOffset)")
-                
-
-                let contentToChange: Double = currentContentOffset - contentOffSetDouble
-                
-                
-                let contentOffSet: CGPoint = CGPoint(x: contentToChange, y: 0)
-                print("the content offset is \(contentOffSet)")
-                
-                self.scrollView.setContentOffset(contentOffSet, animated: true)
-                
-                
-            case UISwipeGestureRecognizerDirection.left:
-                print("Swiped left")
-                
-                
-                
-                let contentSizeWidth: Double = Double(self.scrollView.contentSize.width)
-                
-                let weatherObjects: Double = Double(self.weeklyWeatherObjectsArray.count + 1)
-                
-                let contentOffSetDouble: Double = Double( contentSizeWidth / weatherObjects)
-                
-                let currentContentOffset: Double = Double(self.scrollView.contentOffset.x)
-                
-                print(contentSizeWidth)
-                
-                print("the current content offset is \(currentContentOffset)")
-                
-                if currentContentOffset == 0.0 {
-                    
-                                        let contentToChange: Double = currentContentOffset + contentOffSetDouble
-                    
-                    
-                    let contentOffSet: CGPoint = CGPoint(x: contentToChange, y: 0)
-                    print("the content offset is \(contentOffSet)")
-                    
-                    self.scrollView.setContentOffset(contentOffSet, animated: true)
-
-                }
-                
-                
-                
                
+                let scrollView = self.scrollView
+                let currentPage = self.scrollView.currentPage - 1
+                let contentSizeWidth: Double = Double(self.scrollView.contentSize.width)
+                let weatherObjects: Double = Double(self.weeklyWeatherObjectsArray.count + 1)
+                let contentOffSetDouble: Double = Double( contentSizeWidth / weatherObjects)
+                let currentContentOffset: Double = Double(self.scrollView.contentOffset.x)
                 
-//                self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-//                var contentOffSetAsDouble: Double? = nil
-//                var contentOffSet: CGPoint? = nil
-//                
-//                contentOffSetAsDouble = Double(self.scrollView.contentOffset.x + 415)
-//                print(contentOffSetAsDouble!)
-//                
-//                contentOffSet = CGPoint(x: contentOffSetAsDouble!, y: 0)
-//                self.scrollView.setContentOffset(contentOffSet!, animated: true)
+                if currentPage > 0 {
+                   
+                    scrollViewDidEndDecelerating(scrollView!)
+                    print("The gesture swipe page  is \(currentPage)")
+                    let contentToChange: Double = currentContentOffset - contentOffSetDouble
+                    let contentOffSet: CGPoint = CGPoint(x: contentToChange, y: 0)
+                    self.scrollView.setContentOffset(contentOffSet, animated: true)
+                    
+                }
+            case UISwipeGestureRecognizerDirection.left:
+                
+                let scrollView = self.scrollView
+                let currentPage: Int = self.scrollView.currentPage 
+                let contentSizeWidth: Double = Double(self.scrollView.contentSize.width)
+                let weatherObjects: Double = Double(self.weeklyWeatherObjectsArray.count + 1)
+                let contentOffSetDouble: Double = Double( contentSizeWidth / weatherObjects)
+                let currentContentOffset: Double = Double(self.scrollView.contentOffset.x)
+                
+                if currentPage <= 7 {
+//                    scrollViewDidEndDecelerating(scrollView!)
+//                    print("The gesture swipe page  is \(currentPage)")
+                    let contentToChange: Double = currentContentOffset + contentOffSetDouble
+                    let contentOffSet: CGPoint = CGPoint(x: contentToChange, y: 0)
+                    self.scrollView.setContentOffset(contentOffSet, animated: true)
+                    
+                }
+                scrollViewDidEndDecelerating(scrollView!)
+                print("The gesture swipe page  is \(currentPage)")
+
+                
             default:
                 break
             }
@@ -405,6 +375,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 self.todayBottomView.backgroundColor = .white
                 self.todayBottomView.layer.shadowOpacity = 1
             })
+            print("The scrollview page is \(self.scrollView.currentPage)")
+
         case 2:
             UIView.animate(withDuration: 0.2, animations: {
                 for view in arrayOfViews {
@@ -412,6 +384,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 }
                 self.dayOneBottomView.backgroundColor = .white
                 self.dayOneBottomView.layer.shadowOpacity = 1
+                print("The scrollview page is \(self.scrollView.currentPage)")
+
             })
         case 3:
             UIView.animate(withDuration: 0.2, animations: {
@@ -420,6 +394,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 }
                 self.dayTwoBottomView.backgroundColor = .white
                 self.dayTwoBottomView.layer.shadowOpacity = 1
+                print("The scrollview page is \(self.scrollView.currentPage)")
+
             })
             
         case 4:
@@ -429,6 +405,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 }
                 self.dayThreeBottomView.backgroundColor = .white
                 self.dayThreeBottomView.layer.shadowOpacity = 1
+                print("The scrollview page is \(self.scrollView.currentPage)")
+
             })
         case 5:
             UIView.animate(withDuration: 0.2, animations: {
@@ -437,6 +415,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 }
                 self.dayFourBottomView.backgroundColor = .white
                 self.dayFourBottomView.layer.shadowOpacity = 1
+                print("The scrollview page is \(self.scrollView.currentPage)")
+
             })
         case 6:
             UIView.animate(withDuration: 0.2, animations: {
@@ -445,6 +425,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 }
                 self.dayFiveBottomView.backgroundColor = .white
                 self.dayFiveBottomView.layer.shadowOpacity = 1
+                print("The scrollview page is \(self.scrollView.currentPage)")
+
             })
         case 7:
             UIView.animate(withDuration: 0.2, animations: {
@@ -453,6 +435,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 }
                 self.daySixBottomView.backgroundColor = .white
                 self.daySixBottomView.layer.shadowOpacity = 1
+                print("The scrollview page is \(self.scrollView.currentPage)")
+
             })
         case 8:
             UIView.animate(withDuration: 0.2, animations: {
@@ -461,6 +445,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewD
                 }
                 self.daySevenBottomVew.backgroundColor = .white
                 self.daySevenBottomVew.layer.shadowOpacity = 1
+                print("The scrollview page is \(self.scrollView.currentPage)")
+
             })
         default:
             print("I am the default case")
